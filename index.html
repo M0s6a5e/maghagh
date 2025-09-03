@@ -1,0 +1,722 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>مغاغة لحظة بلحظة</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+    <!-- الرأس وشريط البحث -->
+    <header>
+        <div class="container">
+            <div class="header-content">
+                 <div class="logo">
+                     <img src="icon.png" alt="شعار خصومات" class="logo-image">
+                  <h1 id="changing-text">خصومات</h1>
+                 </div>
+                
+               
+               <div class="search-bar">
+    <input type="text" id="globalSearch" placeholder="ابحث عن متجر، منتج، وظيفة، أو أي شيء...">
+    <button onclick="performSearch()"><i class="fas fa-search"></i></button>
+    <!-- قائمة الاقتراحات -->
+    <div class="search-suggestions" id="searchSuggestions"></div>
+</div>
+            </div>
+        </div>
+    </header>
+    
+    <!-- البانر المتحرك -->
+    <div class="container">
+        <div class="slider">
+            <div class="slide active" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('https://scontent.fcai19-4.fna.fbcdn.net/v/t39.30808-6/543049909_1286643842933838_4217005467445113697_n.jpg?stp=dst-jpg_s640x640_tt6&_nc_cat=110&ccb=1-7&_nc_sid=833d8c&_nc_ohc=52BYwofQhAkQ7kNvwEe3GO4&_nc_oc=AdkUrGt6B78olj_wlbnGvEeV1YuzY_b9ab2GOdt8810UOdM_8P6Fx7WuKkG8YO4Z8UE&_nc_zt=23&_nc_ht=scontent.fcai19-4.fna&_nc_gid=5NEnGnm76P15rVVYqDP5Qw&oh=00_AfXRVuLAnHdnEzncESGqb6lyHAu9IrGU4Clavkdek_akPQ&oe=68BBFB02');">
+                <div class="slide-content">
+                    <h2>خصومات  صيفى من Van Dutti </h2>
+                    <p>كل الي مستني تصفيه الصيفي بأقوى عروض على الكاجول والكلاسيك </p>
+                </div>
+            </div>
+            <div class="slide" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('https://scontent.fcai19-4.fna.fbcdn.net/v/t39.30808-6/541024267_788705847026459_3286649868179141683_n.jpg?stp=dst-jpg_s600x600_tt6&_nc_cat=110&ccb=1-7&_nc_sid=aa7b47&_nc_ohc=HcNnJSvOVbUQ7kNvwFcXOhU&_nc_oc=AdlnsP6gx4CSI0D2bYt3NH6AiBxmdHnNEZmRksD7PveZyv8MyjHE2Rd4MvylDa1LNkg&_nc_zt=23&_nc_ht=scontent.fcai19-4.fna&_nc_gid=Pr30w4dV4hEC-k5C4EhisA&oh=00_AfUlJiRTr48d1OtN1zKn5f-lCM04l6NkdJ26UrcCR6YjjA&oe=68BC2A6B');">
+                <div class="slide-content">
+                    <h2>عروض من كازبلانكا</h2>
+                    <p>بقولك اي ركز معايا كدا 😉
+كازبلانكا كريب عامل عروض نار 🔥🔥🔥🔥
+من يوم الخميس لحد الخميس اللي بعده اسال ع عرض كازبلانكا 🔥🔥🔥🔥🔥</p>
+                </div>
+            </div>
+            <div class="slide" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('https://scontent.fcai19-4.fna.fbcdn.net/v/t39.30808-6/540027917_1840171816922482_6868747090195619309_n.jpg?stp=dst-jpg_s600x600_tt6&_nc_cat=111&ccb=1-7&_nc_sid=aa7b47&_nc_ohc=2SQ8yNU5xNwQ7kNvwFbPECO&_nc_oc=Adn3s5zhwb6dTTZMSABoH3ikYKhjGhwIj11VDTGmfIX3yLs_pQFi_mZqKAdC9Kp9jHw&_nc_zt=23&_nc_ht=scontent.fcai19-4.fna&_nc_gid=JcKy46EIg6UJsCR0f9Ywkw&oh=00_AfWcP9ti-sL1akW-R9b13mPx5TZnyF_fycAXf9A5mHFuJw&oe=68BC1DF5');">
+                <div class="slide-content">
+                    <h2>عرض من خيرات بلدنا</h2>
+                    <p>لانش بوكس ماكس تيلا باقل سعر
+📢🎒 ماكس تيلا لانش بوكس راجعين للمدرسة
+خلي أولادك يبدأوا السنة بطاقة وسعادة 💪✨
+مع عرض ماكس تيلا المميز:
+2 اسكويز شيكولاتة 700 جرام 🍫
+3 علب شيكولاتة 75 جرام 😍
+3 علب لــوتـــس 75 جرام 😋
+لانش بوكس دورين هديه 🎁🎀</p>
+                </div>
+            </div>
+            
+            <div class="slider-nav">
+                <div class="slider-dot active"></div>
+                <div class="slider-dot"></div>
+                <div class="slider-dot"></div>
+            </div>
+        </div>
+    </div>
+
+
+        <!-- قسم الخصومات -->
+    <div class="container">
+       <div class="discounts-section" id="discounts-section">
+            <h2 class="section-title">أفضل العروض والخصومات</h2>
+            
+            <!-- فلترة حسب نوع المحل -->
+            <div class="filters">
+                <button class="filter-btn active" data-filter="all">الكل</button>
+                <button class="filter-btn" data-filter="clothing">ملابس</button>
+                <button class="filter-btn" data-filter="restaurant">مطاعم</button>
+                <button class="filter-btn" data-filter="coffies">كفيهات</button>
+                <button class="filter-btn" data-filter="electronics">إلكترونيات</button>
+                <button class="filter-btn" data-filter="beauty">تجميل</button>
+            </div>
+            
+            <!-- شبكة محلات الخصومات -->
+            <div class="discounts-grid">
+                <!-- المحل 1 -->
+                <div class="discount-card" data-category="clothing">
+                    <div class="discount-badge">خصم 40%</div>
+                    <div class="store-image" style="background-image: url('https://scontent.fcai19-4.fna.fbcdn.net/v/t39.30808-1/317609298_101143689510458_4561068826740161569_n.jpg?stp=dst-jpg_s160x160_tt6&_nc_cat=1&ccb=1-7&_nc_sid=2d3e12&_nc_ohc=pXbp8HcT5UAQ7kNvwHBC94y&_nc_oc=AdnfK6oKfHfR-fPGJyTKEv_1AfnqYjn1W9IAEOSOGBdDu_c0D3We2qfLmeb0iFY4eNI&_nc_zt=24&_nc_ht=scontent.fcai19-4.fna&_nc_gid=QUuTqg5KPm1MmAR_NJlMJA&oh=00_AfXs5bRrRHnBoWnz0eYyYyq62rna0TBifyc_H-dQkfYMsQ&oe=68BC0D6F');"></div>
+                    <div class="store-info">
+                        <h3>ضجة</h3>
+                        <p class="store-address"><i class="fas fa-map-marker-alt"></i> شارع الثورة بمغاغة، بجوار صيدلية د/ أحمد سعيد</p>
+                        <p class="store-desc">أحدث صيحات الموضة بأسعار مميزة</p>
+                        <a href="https://dagastore.net/?fbclid=IwY2xjawMjIq1leHRuA2FlbQIxMABicmlkETFTRUlTbFYwQlVMMGhvbzBtAR6Onexf1lXLGJyWhOXGhifY8DXK7KHVIhoJhxoZdGa1oKK35AiKzwuV_rs5vw_aem_lHC4JRljaz4d6DShxZ6Kmg" class="details-btn">عرض التفاصيل</a>
+                    </div>
+                </div>
+                
+                <!-- المحل 2 -->
+                <div class="discount-card" data-category="clothing">
+                    <div class="discount-badge">خصم 25%</div>
+                    <div class="store-image" style="background-image: url('https://scontent.fcai19-4.fna.fbcdn.net/v/t39.30808-1/243232272_246962770773667_5165917820072628982_n.png?stp=dst-png_s200x200&_nc_cat=100&ccb=1-7&_nc_sid=2d3e12&_nc_ohc=xLm5e4tpkUEQ7kNvwF9xrPt&_nc_oc=AdkRUpgfkwi15BBw3BRmXtxu6ibLUSVT3vSzJ-aRSeA3H8FcXz-UXd7FQB9p413YwRs&_nc_zt=24&_nc_ht=scontent.fcai19-4.fna&_nc_gid=tPpSvoA0LfreYH4KseiPmQ&oh=00_AfV7TUA6x135FXHJZwTqTIb2OsvBQD_KrTylRXDTvJmHbw&oe=68BC022B');"></div>
+                    <div class="store-info">
+                        <h3>كولكشن فرع مغاغة (الكاجوال)</h3>
+                        <p class="store-address"><i class="fas fa-map-marker-alt"></i> شارع السلام، بجوار النحاس</p>
+                        <p class="store-desc">ملابس كاجوال</p>
+                        <a href="https://www.facebook.com/profile.php?id=100063798383068" class="details-btn">عرض التفاصيل</a>
+                    </div>
+                </div>
+                
+                <!-- المحل 3 -->
+                <div class="discount-card" data-category="clothing">
+                    <div class="discount-badge">خصم 30%</div>
+                    <div class="store-image" style="background-image: url('https://scontent.fcai19-4.fna.fbcdn.net/v/t39.30808-1/535053222_735748722568065_5132583684896392550_n.jpg?stp=dst-jpg_s200x200_tt6&_nc_cat=109&ccb=1-7&_nc_sid=2d3e12&_nc_ohc=abPb9o6nEywQ7kNvwF3E9HN&_nc_oc=Adn4aY6O3z_xkLKAX8nTsJvZKtXu-M0zsUueq3AAbYck2WQr35pTreFizmiaYrqN8NU&_nc_zt=24&_nc_ht=scontent.fcai19-4.fna&_nc_gid=bp4Ip0tOCNTn5_7ikTKueQ&oh=00_AfVtTMXGV7DY0d4eS_fJ6EZY8UL-F6bDdNtn8dSVVlUt6Q&oe=68BC3387');"></div>
+                    <div class="store-info">
+                        <h3>ابو النسب</h3>
+                        <p class="store-address"><i class="fas fa-map-marker-alt"></i> 
+شارع الدسوقي بجوار المطافي</p>
+                        <p class="store-desc">أفضل الملابس لجميع الاعمار بااسعار قوية </p>
+                        <a href="https://www.facebook.com/profile.php?id=100083988304318&__cft__[0]=AZWPlDotfAszv3uIdTCngT-uQgn6qnaxTTnzlpSIVNTkfoBfRd7S93kHF0hNqTysq-VaZNmjBz70sWaqzWxJvENr6EBX8LryL9V23tZkk_C6vF7xeWGLp5WobhNUN2VV_3dLpXgaCAqWk8Oddvo5euA3VK7V0yegepkUyglvlIFqmpJNQXy_XpMpDpUFF6Bjg90&__tn__=-UC%2CP-R" class="details-btn">عرض التفاصيل</a>
+                    </div>
+                </div>
+                
+                <!-- المحل 4 -->
+                <div class="discount-card" data-category="restaurant">
+                    <div class="discount-badge">خصم 35%</div>
+                    <div class="store-image" style="background-image: url('https://scontent.fcai19-4.fna.fbcdn.net/v/t39.30808-1/528829116_1274116570764874_1084549922816372082_n.jpg?stp=c106.0.441.441a_dst-jpg_s200x200_tt6&_nc_cat=108&ccb=1-7&_nc_sid=2d3e12&_nc_ohc=UIpUJQse17UQ7kNvwHcDpCe&_nc_oc=AdmwBylJJJjUsY4kbff-PgDCk4pnIMWp4s6Gzrcu90kGJk2if_CgwpefHsZmkX1XQHA&_nc_zt=24&_nc_ht=scontent.fcai19-4.fna&_nc_gid=xZgm7XEz-Wo4Nl5Kxh1yTg&oh=00_AfULSKitZWGNwmxQ3qlPaG5YFHCH_Ro4Ue6Pmv2KAvkbig&oe=68BC2AE5');"></div>
+                    <div class="store-info">
+                        <h3>حلو الشام حلويات ومخبوزات</h3>
+                        <p class="store-address"><i class="fas fa-map-marker-alt"></i> حلويات ومخبوزات – شارع العبور – مغاغة</p>
+                        <p class="store-desc">حلويات ومخبوزات</p>
+                        <a href="https://www.facebook.com/heloSham" class="details-btn">عرض التفاصيل</a>
+                    </div>
+                </div>
+                
+                <!-- المحل 5 -->
+                <div class="discount-card" data-category="coffies">
+                    <div class="discount-badge">خصم 50%</div>
+                    <div class="store-image" style="background-image: url('https://scontent.fcai19-4.fna.fbcdn.net/v/t39.30808-1/357702318_281613094376920_3403911819992654621_n.jpg?stp=dst-jpg_s200x200_tt6&_nc_cat=103&ccb=1-7&_nc_sid=2d3e12&_nc_ohc=4O5QisQLCNMQ7kNvwGp94Pm&_nc_oc=AdkH4zQ-JBx1xvVzvoImsgZ-yaIVdsLB3V30I_bwb04eutY1CoVArsSM1IRqrK1YhEw&_nc_zt=24&_nc_ht=scontent.fcai19-4.fna&_nc_gid=cM79fB-uhoSu439R-FKGQA&oh=00_AfX40XymsdxuIKHpsug0Y0ZCJYFJm19HOxmsqbetYP2eVA&oe=68BC06C9');"></div>
+                    <div class="store-info">
+                        <h3>واحة النخيل</h3>
+                        <p class="store-address"><i class="fas fa-map-marker-alt"></i> المنيا,مغاغة,اخر شارع الثوره بعد قاعة هيا, Maghaghah, Egypt</p>
+                        <p class="store-desc">لوكيشن تصوير - زفاف - كاجوال او فردي
+مطعم وكافيه وملاهي</p>
+                        <a href="https://www.facebook.com/profile.php?id=100075846942077" class="details-btn">عرض التفاصيل</a>
+                    </div>
+                </div>
+                
+                <!-- المحل 6 -->
+                <div class="discount-card" data-category="clothing">
+                    <div class="discount-badge">خصم 20%</div>
+                    <div class="store-image" style="background-image: url('https://scontent.fcai19-4.fna.fbcdn.net/v/t39.30808-6/467419858_122179673804166371_395914439707597556_n.jpg?stp=dst-jpg_s960x960_tt6&_nc_cat=109&ccb=1-7&_nc_sid=cc71e4&_nc_ohc=NVq3zt6xElMQ7kNvwHJiOUa&_nc_oc=Adkp07KunT4_Cb6QgYN-Xs3FLhXG3wu1de-r9j9iUq5Lb7lxd_YNFys4T-BD0ooscMQ&_nc_zt=23&_nc_ht=scontent.fcai19-4.fna&_nc_gid=pFegZS8OCoOsf4uqfu8rMQ&oh=00_AfWQEX3KTNfO4KFyzkbNm8qPwdhMRBB69iBtZj7W0BibIA&oe=68BC3AC7');"></div>
+                    <div class="store-info">
+                        <h3>محلات H7ملابس رجالي</h3>
+                        <p class="store-address"><i class="fas fa-map-marker-alt"></i> مغاغه شارع الجمهوريه أمام صيدليه رمزي </p>
+                        <p class="store-desc">محل ملابس بعروض ضخمة</p>
+                        <a href="https://www.facebook.com/share/g/1CA5K2im5J/" class="details-btn">عرض التفاصيل</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+
+<!-- قسم المحلات الحديثة والباقات -->
+<div class="container">
+    <div class="shops-plans-section" id="shops-plans-section">
+        <h2 class="section-title">المحلات الحديثة والباقات</h2>
+        <p class="section-subtitle">اكتشف أحدث المحلات في مغاغة واختر الباقة المناسبة لمحلك</p>
+
+        <!-- المحتوى الأصلي للمحلات الحديثة -->
+        <div class="new-shops-content">
+            <div class="new-shops-grid">
+                <!-- يمكن إضافة محلات هنا لاحقاً -->
+            </div>
+
+            <!-- زر إضافة إعلان الأصلي -->
+            <div class="add-listing-container">
+                <div class="add-listing-card">
+                    <i class="fas fa-store add-listing-icon"></i>
+                    <h3>هل تمتلك محلًا؟</h3>
+                    <p>أضف إعلانك هنا للظهور في قسم المحلات الحديثة</p>
+                  
+                </div>
+            </div>
+        </div>
+<!-- قسم الباقات الجديد -->
+<div class="plans-divider">
+    <h3>باقات الاشتراك المميزة</h3>
+    <p>اختر الباقة المناسبة لمحلك وتمتع بمزايا حصرية</p>
+</div>
+
+<div class="plans-grid">
+    <!-- الباقة الأساسية -->
+    <div class="plan-card" data-plan="الباقة الأساسية" data-price="100">
+        <div class="plan-header">
+            <h3>الباقة الأساسية</h3>
+            <div class="plan-price">100 جنيه</div>
+            <p>شهرياً</p>
+        </div>
+        <div class="plan-features">
+            <div class="feature">
+                <i class="fas fa-check-circle"></i>
+                <span>ظهور في قسم المحلات الحديثة</span>
+            </div>
+            <div class="feature">
+                <i class="fas fa-check-circle"></i>
+                <span>صورة واحدة للمحل</span>
+            </div>
+            <div class="feature">
+                <i class="fas fa-check-circle"></i>
+                <span>وصف قصير (50 كلمة)</span>
+            </div>
+            <div class="feature">
+                <i class="fas fa-check-circle"></i>
+                <span>رابط تواصل مباشر</span>
+            </div>
+        </div>
+        <button class="plan-select-btn" onclick="selectPlan('الباقة الأساسية', 100)">
+            <i class="fab fa-whatsapp"></i> اشترك عبر واتساب
+        </button>
+    </div>
+
+    <!-- الباقة المميزة -->
+    <div class="plan-card featured" data-plan="الباقة المميزة" data-price="200">
+        <div class="plan-badge">الأكثر شيوعاً</div>
+        <div class="plan-header">
+            <h3>الباقة المميزة</h3>
+            <div class="plan-price">200 جنيه</div>
+            <p>شهرياً</p>
+        </div>
+        <div class="plan-features">
+            <div class="feature">
+                <i class="fas fa-check-circle"></i>
+                <span>كل مزايا الباقة الأساسية</span>
+            </div>
+            <div class="feature">
+                <i class="fas fa-check-circle"></i>
+                <span>3 صور للمحل</span>
+            </div>
+            <div class="feature">
+                <i class="fas fa-check-circle"></i>
+                <span>وصف مفصل (100 كلمة)</span>
+            </div>
+            <div class="feature">
+                <i class="fas fa-check-circle"></i>
+                <span>ظهور مميز في الأعلى</span>
+            </div>
+            <div class="feature">
+                <i class="fas fa-check-circle"></i>
+                <span>إحصاءات المشاهدات</span>
+            </div>
+        </div>
+        <button class="plan-select-btn featured-btn" onclick="selectPlan('الباقة المميزة', 200)">
+            <i class="fab fa-whatsapp"></i> اشترك عبر واتساب
+        </button>
+    </div>
+
+    <!-- الباقة الذهبية -->
+    <div class="plan-card" data-plan="الباقة الذهبية" data-price="300">
+        <div class="plan-header">
+            <h3>الباقة الذهبية</h3>
+            <div class="plan-price">300 جنيه</div>
+            <p>شهرياً</p>
+        </div>
+        <div class="plan-features">
+            <div class="feature">
+                <i class="fas fa-check-circle"></i>
+                <span>كل مزايا الباقة المميزة</span>
+            </div>
+            <div class="feature">
+                <i class="fas fa-check-circle"></i>
+                <span>5 صور للمحل</span>
+            </div>
+            <div class="feature">
+                <i class="fas fa-check-circle"></i>
+                <span>وصف غير محدود</span>
+            </div>
+            <div class="feature">
+                <i class="fas fa-check-circle"></i>
+                <span>ظهور دائم في الصدارة</span>
+            </div>
+            <div class="feature">
+                <i class="fas fa-check-circle"></i>
+                <span>إعلان على الصفحة الرئيسية</span>
+            </div>
+            <div class="feature">
+                <i class="fas fa-check-circle"></i>
+                <span>دعم فني مخصص</span>
+            </div>
+        </div>
+        <button class="plan-select-btn" onclick="selectPlan('الباقة الذهبية', 300)">
+            <i class="fab fa-whatsapp"></i> اشترك عبر واتساب
+        </button>
+    </div>
+</div>
+
+<!-- معلومات إضافية -->
+<div class="plan-info">
+    <p>💡 للاستفسارات أو الباقات المخصصة، تواصل معنا مباشرة</p>
+    <a href="https://wa.me/201148179176?text=مرحباً، أريد استفسار عن باقات مخصصة" class="whatsapp-btn" target="_blank">
+        <i class="fab fa-whatsapp"></i> تواصل للاستفسار
+    </a>
+</div>
+
+        
+    </div>
+</div>
+
+
+
+
+
+    <!-- قسم العقارات -->
+<div class="container">
+    <div class="real-estate-section" id="real-estate-section">
+        <h2 class="section-title">عقارات مغاغة</h2>
+        <p class="section-subtitle">اكتشف أفضل العقارات والشقق والأراضي المتاحة للبيع والإيجار في مغاغة</p>
+
+        <!-- فلترة العقارات -->
+        <div class="real-estate-filters">
+            <button class="filter-btn active" data-filter="all">الكل</button>
+            <button class="filter-btn" data-filter="شقق">شقق للبيع</button>
+            <button class="filter-btn" data-filter="شقق-ايجار">شقق للإيجار</button>
+            <button class="filter-btn" data-filter="عقارات">عقارات</button>
+            <button class="filter-btn" data-filter="اراضي">أراضي</button>
+            <button class="filter-btn" data-filter="فلل">فلل</button>
+        </div>
+
+        <!-- شبكة العقارات -->
+        <div class="real-estate-grid">
+            <!-- العقار 1 -->
+            <div class="property-card" data-category="شقق">
+                <div class="property-image" style="background-image: url('https://images.unsplash.com/photo-1560448204-e02f11c3d0e2?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80');">
+                    <div class="property-badge">للبيع</div>
+                    <div class="property-price">250,000 جنيه</div>
+                </div>
+                <div class="property-info">
+                    <h3>شقة 120م في حي الورود</h3>
+                    <p class="property-location"><i class="fas fa-map-marker-alt"></i> حي الورود، مغاغة</p>
+                    <div class="property-details">
+                        <span><i class="fas fa-bed"></i> 3 غرف</span>
+                        <span><i class="fas fa-bath"></i> 2 حمام</span>
+                        <span><i class="fas fa-ruler-combined"></i> 120م</span>
+                    </div>
+                    <p class="property-description">شقة حديثة في موقع مميز، طابق ثالث، تشطيب سوبر لوكس، جميع الخدمات متوفرة.</p>
+                    <div class="property-actions">
+                        <button class="contact-btn" onclick="contactOwner('شقة 120م في حي الورود', 250000)">
+                            <i class="fas fa-phone"></i> اتصل بالمالك
+                        </button>
+                        <button class="whatsapp-btn" onclick="whatsappOwner('شقة 120م في حي الورود', 250000)">
+                            <i class="fab fa-whatsapp"></i> واتساب
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- العقار 2 -->
+            <div class="property-card" data-category="شقق-ايجار">
+                <div class="property-image" style="background-image: url('https://images.unsplash.com/photo-1522708323590-d24dbb6b0267?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80');">
+                    <div class="property-badge">للإيجار</div>
+                    <div class="property-price">1,500 جنيه/شهر</div>
+                </div>
+                <div class="property-info">
+                    <h3>شقة 90م للإيجار</h3>
+                    <p class="property-location"><i class="fas fa-map-marker-alt"></i> وسط المدينة، مغاغة</p>
+                    <div class="property-details">
+                        <span><i class="fas fa-bed"></i> 2 غرف</span>
+                        <span><i class="fas fa-bath"></i> 1 حمام</span>
+                        <span><i class="fas fa-ruler-combined"></i> 90م</span>
+                    </div>
+                    <p class="property-description">شقة مفروشة للإيجار الشهري، موقع ممتاز قريب من جميع الخدمات.</p>
+                    <div class="property-actions">
+                        <button class="contact-btn" onclick="contactOwner('شقة 90م للإيجار', 1500)">
+                            <i class="fas fa-phone"></i> اتصل بالمالك
+                        </button>
+                        <button class="whatsapp-btn" onclick="whatsappOwner('شقة 90م للإيجار', 1500)">
+                            <i class="fab fa-whatsapp"></i> واتساب
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- العقار 3 -->
+            <div class="property-card" data-category="اراضي">
+                <div class="property-image" style="background-image: url('https://images.unsplash.com/photo-1501876725164-26cce59547aa?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80');">
+                    <div class="property-badge">للبيع</div>
+                    <div class="property-price">400,000 جنيه</div>
+                </div>
+                <div class="property-info">
+                    <h3>أرض سكنية 300م</h3>
+                    <p class="property-location"><i class="fas fa-map-marker-alt"></i> شمال مغاغة</p>
+                    <div class="property-details">
+                        <span><i class="fas fa-vector-square"></i> 300 متر</span>
+                        <span><i class="fas fa-road"></i> على الطريق الرئيسي</span>
+                    </div>
+                    <p class="property-description">أرض سكنية ممتازة، جميع المرافق متوفرة، صكوك قانونية.</p>
+                    <div class="property-actions">
+                        <button class="contact-btn" onclick="contactOwner('أرض سكنية 300م', 400000)">
+                            <i class="fas fa-phone"></i> اتصل بالمالك
+                        </button>
+                        <button class="whatsapp-btn" onclick="whatsappOwner('أرض سكنية 300م', 400000)">
+                            <i class="fab fa-whatsapp"></i> واتساب
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- العقار 4 -->
+            <div class="property-card" data-category="فلل">
+                <div class="property-image" style="background-image: url('https://images.unsplash.com/photo-1613977257363-707ba9348227?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80');">
+                    <div class="property-badge">للبيع</div>
+                    <div class="property-price">800,000 جنيه</div>
+                </div>
+                <div class="property-info">
+                    <h3>فيلا 200م</h3>
+                    <p class="property-location"><i class="fas fa-map-marker-alt"></i> حي الفيلات، مغاغة</p>
+                    <div class="property-details">
+                        <span><i class="fas fa-bed"></i> 4 غرف</span>
+                        <span><i class="fas fa-bath"></i> 3 حمام</span>
+                        <span><i class="fas fa-ruler-combined"></i> 200م</span>
+                    </div>
+                    <p class="property-description">فيلا فاخرة، حديقة، جراج، تشطيب ممتاز، موقع هادئ.</p>
+                    <div class="property-actions">
+                        <button class="contact-btn" onclick="contactOwner('فيلا 200م', 800000)">
+                            <i class="fas fa-phone"></i> اتصل بالمالك
+                        </button>
+                        <button class="whatsapp-btn" onclick="whatsappOwner('فيلا 200م', 800000)">
+                            <i class="fab fa-whatsapp"></i> واتساب
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- زر إضافة عقار -->
+        <div class="add-property-container">
+            <div class="add-property-card">
+                <i class="fas fa-home add-property-icon"></i>
+                <h3>هل لديك عقار للبيع أو الإيجار؟</h3>
+                <p>أضف عقارك للوصول إلى آلاف العملاء المحتملين في مغاغة</p>
+                <a href="https://wa.me/201148179176?text=مرحباً، أريد إضافة عقار للبيع/الإيجار" class="whatsapp-btn" target="_blank">
+                    <i class="fab fa-whatsapp"></i> تواصل معنا عبر واتساب
+                </a>
+                <p class="contact-info">رقم الواتساب: 01148179176</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+ <div class="container">
+        <div class="header position-relative">
+            <span class="production-badge">نظام أساسي</span>
+            <h1><i class="fas fa-briefcase me-2"></i>وظائف مغاغة</h1>
+            <p class="lead">النظام الأساسي - للاستخدام العام</p>
+        </div>
+        
+        <!-- لوحة التحكم للمسؤول -->
+        <div class="admin-panel card mt-4">
+            <div class="card-header">
+                <h4><i class="fas fa-cog me-2"></i>لوحة التحكم للمسؤول</h4>
+            </div>
+            <div class="card-body">
+                <div id="adminLoginSection">
+                    <div class="mb-3">
+                        <label for="email" class="form-label">البريد الإلكتروني:</label>
+                        <input type="email" class="form-control" id="email">
+                    </div>
+                    <div class="mb-3">
+                        <label for="password" class="form-label">كلمة المرور:</label>
+                        <input type="password" class="form-control" id="password">
+                    </div>
+                    <button class="btn btn-primary" id="adminLoginBtn">تسجيل الدخول</button>
+                </div>
+                <div id="adminControlsSection" class="hidden">
+                    <p>مرحباً، <span id="adminEmail"></span></p>
+                    <button class="btn btn-danger" id="logoutBtn">تسجيل الخروج</button>
+                </div>
+            </div>
+        </div>
+        
+        <div class="row">
+            <div class="col-lg-8">
+                <!-- فلترة الوظائف -->
+                <div class="filter-section">
+                    <h4><i class="fas fa-filter me-2"></i>تصفية الوظائف</h4>
+                    <div class="row g-3 mt-2">
+                        <div class="col-md-4">
+                            <label for="job-type" class="form-label">نوع الوظيفة:</label>
+                            <select class="form-select" id="job-type">
+                                <option value="all">الكل</option>
+                                <option value="full-time">دوام كامل</option>
+                                <option value="part-time">دوام جزئي</option>
+                                <option value="contract">عقد</option>
+                                <option value="freelance">عمل حر</option>
+                            </select>
+                        </div>
+                        
+                        <div class="col-md-4">
+                            <label for="job-location" class="form-label">المكان:</label>
+                            <select class="form-select" id="job-location">
+                                <option value="all">الكل</option>
+                                <option value="downtown">وسط المدينة</option>
+                                <option value="north">شمال مغاغة</option>
+                                <option value="south">جنوب مغاغة</option>
+                                <option value="industrial">المنطقة الصناعية</option>
+                            </select>
+                        </div>
+                        
+                        <div class="col-md-4">
+                            <label for="job-category" class="form-label">التصنيف:</label>
+                            <select class="form-select" id="job-category">
+                                <option value="all">الكل</option>
+                                <option value="retail">بيع بالتجزئة</option>
+                                <option value="food">مطاعم وغذاء</option>
+                                <option value="education">تعليم</option>
+                                <option value="health">صحة</option>
+                                <option value="technical">تقنية</option>
+                            </select>
+                        </div>
+                        
+                        <div class="col-12">
+                            <button class="btn btn-primary w-100" id="applyFilters">
+                                <i class="fas fa-filter me-2"></i>تطبيق الفلترة
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- حالة التحميل -->
+                <div class="text-center py-5" id="loadingSection">
+                    <div class="spinner-border text-primary" role="status">
+                        <span class="visually-hidden">جاري التحميل...</span>
+                    </div>
+                    <p class="mt-3">جاري تحميل الوظائف...</p>
+                </div>
+                
+                <!-- حالة عدم وجود وظائف -->
+                <div class="alert alert-info text-center hidden" id="noJobsMessage">
+                    <i class="fas fa-info-circle me-2"></i>لا توجد وظائف متاحة حالياً. كن أول من يضيف وظيفة!
+                </div>
+                
+                <!-- قائمة الوظائف -->
+                <div class="jobs-list row" id="jobsList">
+                    <!-- سيتم ملء هذا القسم ديناميكياً باستخدام JavaScript -->
+                </div>
+            </div>
+            
+            <div class="col-lg-4">
+                <!-- نموذج إضافة وظيفة -->
+                <div class="card">
+                    <div class="card-header bg-primary text-white">
+                        <h5 class="mb-0"><i class="fas fa-plus-circle me-2"></i>إضافة وظيفة جديدة</h5>
+                    </div>
+                    <div class="card-body">
+                        <form id="jobForm">
+                            <div class="mb-3">
+                                <label for="jobTitle" class="form-label">المسمى الوظيفي</label>
+                                <input type="text" class="form-control" id="jobTitle" required>
+                            </div>
+                            
+                            <div class="mb-3">
+                                <label for="companyName" class="form-label">اسم الشركة/المحل</label>
+                                <input type="text" class="form-control" id="companyName" required>
+                            </div>
+                            
+                            <div class="mb-3">
+                                <label for="jobLocation" class="form-label">المكان</label>
+                                <select class="form-select" id="jobLocation" required>
+                                    <option value="">اختر المكان</option>
+                                    <option value="downtown">وسط المدينة</option>
+                                    <option value="north">شمال مغاغة</option>
+                                    <option value="south">جنوب مغاغة</option>
+                                    <option value="industrial">المنطقة الصناعية</option>
+                                </select>
+                            </div>
+                            
+                            <div class="mb-3">
+                                <label for="jobType" class="form-label">نوع الوظيفة</label>
+                                <select class="form-select" id="jobType" required>
+                                    <option value="">اختر نوع الوظيفة</option>
+                                    <option value="full-time">دوام كامل</option>
+                                    <option value="part-time">دوام جزئي</option>
+                                    <option value="contract">عقد</option>
+                                    <option value="freelance">عمل حر</option>
+                                </select>
+                            </div>
+                            
+                            <div class="mb-3">
+                                <label for="jobCategory" class="form-label">التصنيف</label>
+                                <select class="form-select" id="jobCategory" required>
+                                    <option value="">اختر التصنيف</option>
+                                    <option value="retail">بيع بالتجزئة</option>
+                                    <option value="food">مطاعم وغذاء</option>
+                                    <option value="education">تعليم</option>
+                                    <option value="health">صحة</option>
+                                    <option value="technical">تقنية</option>
+                                </select>
+                            </div>
+                            
+                            <div class="mb-3">
+                                <label for="jobDescription" class="form-label">وصف الوظيفة</label>
+                                <textarea class="form-control" id="jobDescription" rows="3" required></textarea>
+                            </div>
+                            
+                            <div class="mb-3">
+                                <label for="contactInfo" class="form-label">معلومات التواصل</label>
+                                <input type="text" class="form-control" id="contactInfo" required>
+                                <div class="form-text">رقم الهاتف أو البريد الإلكتروني</div>
+                            </div>
+                            
+                            <button type="submit" class="btn btn-success w-100">
+                                <i class="fas fa-paper-plane me-2"></i>نشر الوظيفة
+                            </button>
+                        </form>
+                    </div>
+                </div>
+                
+                <!-- إشعار النظام الأساسي -->
+                <div class="alert alert-warning mt-4">
+                    <h6><i class="fas fa-info-circle me-2"></i>معلومات النظام</h6>
+                    <p class="small mb-0">هذا النظام يعمل في الوضع الأساسي. جميع الوظائف المنشورة تكون عامة ويمكن للجميع رؤيتها.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+                
+    <!-- الأقسام -->    
+<!--
+<div class="container">
+    <div class="categories">
+        <h2 class="section-title">اكتشف خياراتنا</h2>
+        
+        <div class="categories-grid">
+            <div class="category-card">
+                <div class="category-icon">
+                    <i class="fas fa-percent"></i>
+                </div>
+                <h3>خصومات</h3>
+                <p>استفد من أفضل العروض والتخفيضات على مختلف المنتجات والخدمات</p>
+            </div>
+            
+            
+            <div class="category-card" onclick="window.location.href='rewards.html'">
+                <div class="category-icon">
+                    <i class="fas fa-gift"></i>
+                </div>
+                <h3>الجوائز</h3>
+                <p>شارك في مسابقاتنا واحصل على فرصة الفوز بجوائز قيمة</p>
+            </div>
+        </div>
+    </div>
+</div>
+    -->
+
+<!-- التذييل -->
+<footer>
+    <div class="container">
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>عن موقع مغاغة</h3>
+                <p>الموقع ليس رسميا من جهة حكومية او سياسية انما هو موقع من عمل شبان مغاغة وهو لتسهيل الوصول الى المنتجات والوظائف المتاحة</p>
+            </div>
+            
+            <div class="footer-section">
+                <h3>روابط سريعة</h3>
+                <p>شروط الاستخدام</p>
+                <p>سياسة الخصوصية</p>
+                <p>اتصل بنا</p>
+            </div>
+            
+            <div class="footer-section">
+                <h3>تابعنا على</h3>
+                <div class="social-icons">
+                    <a href="#"><i class="fab fa-facebook"></i></a>
+                    <a href="#"><i class="fab fa-twitter"></i></a>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                    <a href="#"><i class="fab fa-youtube"></i></a>
+                </div>
+            </div>
+        </div>
+        
+        <div class="copyright">
+            <p>&copy; 2025 جميع الحقوق محفوظة لدى M0S7A5E</p>
+        </div>
+    </div>
+</footer>
+    
+    <!-- في نهاية الملف قبل </body> -->
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+<script>
+  // تهيئة Supabase هنا مباشرة
+  const SUPABASE_URL = 'https://hqrwcfwhdzencahgiuex.supabase.co';
+  const SUPABASE_ANON_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImhxcndjZndoZHplbmNhaGdpdWV4Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3NTY4MzUwMDksImV4cCI6MjA3MjQxMTAwOX0.-7_wUXyLUStUItr3tCYhUcis8ebfygLlfjrk9mEzfmE';
+  
+  // جعل supabase متاحاً globally
+  window.supabase = supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY, {
+    auth: { persistSession: true }
+  });
+  
+  console.log('تم تهيئة Supabase بنجاح');
+</script>
+<script src="jop.js"></script>
+<script src="script.js"></script>
+
+<script>
+// دالة اختيار الباقة
+function selectPlan(planName, planPrice) {
+    const message = `طلب اشتراك في ${planName} بسعر ${planPrice} جنيه`;
+    const encodedMessage = encodeURIComponent(message);
+    const whatsappURL = `https://wa.me/201148179176?text=${encodedMessage}`;
+    window.open(whatsappURL, '_blank');
+    console.log('تم فتح الواتساب');
+}
+</script>
+</body>
+</html>

@@ -1,0 +1,1962 @@
+/* أنماط عامة */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+    background-color: #f8f9fa;
+    color: #333;
+    line-height: 1.6;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 15px;
+}
+
+/* شريط التنقل */
+header {
+    background: linear-gradient(to right, #623b1e, #feb47b);
+    padding: 15px 0;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
+
+.header-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+}
+
+.logo h1 {
+    color: white;
+    font-size: 1.8rem;
+    margin-right: 10px;
+}
+
+.logo i {
+    color: white;
+    font-size: 2rem;
+}
+
+.search-bar {
+    display: flex;
+    flex: 1;
+    max-width: 500px;
+    margin: 0 20px;
+    position: relative;
+}
+
+.search-bar input {
+    flex: 1;
+    padding: 12px 15px;
+    border: none;
+    border-radius: 30px 0 0 30px;
+    font-size: 1rem;
+    outline: none;
+}
+
+.search-bar button {
+    background: #333;
+    color: white;
+    border: none;
+    padding: 0 20px;
+    border-radius: 0 30px 30px 0;
+    cursor: pointer;
+    transition: background 0.3s;
+}
+
+.search-bar button:hover {
+    background: #555;
+}
+
+/* البانر المتحرك */
+.slider {
+    margin: 20px 0;
+    position: relative;
+    height: 400px;
+    overflow: hidden;
+    border-radius: 10px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+}
+
+.slide {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    transition: opacity 1s ease;
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    align-items: flex-end;
+    padding: 30px;
+}
+
+.slide.active {
+    opacity: 1;
+}
+
+.slide-content {
+    background: rgba(0, 0, 0, 0.6);
+    color: white;
+    padding: 20px;
+    border-radius: 8px;
+    max-width: 500px;
+}
+
+.slide-content h2 {
+    margin-bottom: 10px;
+    font-size: 1.8rem;
+}
+
+.slider-nav {
+    position: absolute;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    gap: 10px;
+}
+
+.slider-dot {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.5);
+    cursor: pointer;
+    transition: background 0.3s;
+}
+
+.slider-dot.active {
+    background: white;
+}
+
+/* قسم الخصومات */
+.discounts-section {
+    margin: 40px 0;
+}
+
+.section-title {
+    text-align: center;
+    margin-bottom: 30px;
+    color: #333;
+    position: relative;
+    padding-bottom: 15px;
+}
+
+.section-title::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 80px;
+    height: 4px;
+    background: linear-gradient(to right, #ff7e5f, #feb47b);
+    border-radius: 2px;
+}
+
+.filters {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-bottom: 30px;
+}
+
+.filter-btn {
+    padding: 10px 20px;
+    background-color: #f1f1f1;
+    border: none;
+    border-radius: 30px;
+    cursor: pointer;
+    transition: all 0.3s;
+    font-weight: 500;
+}
+
+.filter-btn:hover {
+    background-color: #e0e0e0;
+}
+
+.filter-btn.active {
+    background: linear-gradient(to right, #ff7e5f, #feb47b);
+    color: white;
+}
+
+.discounts-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 25px;
+}
+
+.discount-card {
+    background: white;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+    transition: transform 0.3s, box-shadow 0.3s;
+    position: relative;
+}
+
+.discount-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+}
+
+.discount-badge {
+    position: absolute;
+    top: 15px;
+    left: 15px;
+    background: linear-gradient(to right, #ff7e5f, #feb47b);
+    color: white;
+    padding: 5px 12px;
+    border-radius: 20px;
+    font-weight: bold;
+    z-index: 2;
+}
+
+.store-image {
+    height: 200px;
+    background-size: cover;
+    background-position: center;
+    position: relative;
+}
+
+.store-info {
+    padding: 20px;
+}
+
+.store-info h3 {
+    margin-bottom: 10px;
+    color: #333;
+    font-size: 1.2rem;
+}
+
+.store-address {
+    color: #666;
+    margin-bottom: 10px;
+    font-size: 0.9rem;
+}
+
+.store-address i {
+    margin-left: 5px;
+    color: #ff7e5f;
+}
+
+.store-desc {
+    color: #777;
+    margin-bottom: 15px;
+    font-size: 0.9rem;
+    line-height: 1.5;
+}
+
+.details-btn {
+    display: inline-block;
+    text-decoration: none;
+    text-align: center;
+    width: 100%;
+    padding: 12px;
+    background: linear-gradient(to right, #ff7e5f, #feb47b);
+    color: white;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: background 0.3s;
+}
+
+.details-btn:hover {
+    background: linear-gradient(to right, #feb47b, #ff7e5f);
+    text-decoration: none;
+    color: white;
+}
+
+/* قسم إضافة الإعلان */
+.add-listing-container {
+    display: flex;
+    justify-content: center;
+    margin-top: 40px;
+}
+
+.add-listing-card {
+    background: linear-gradient(135deg, #f8f9fa, #e9ecef);
+    border: 2px dashed #ff7e5f;
+    border-radius: 12px;
+    padding: 30px;
+    text-align: center;
+    max-width: 400px;
+    width: 100%;
+}
+
+.add-listing-icon {
+    font-size: 3rem;
+    color: #ff7e5f;
+    margin-bottom: 15px;
+}
+
+.add-listing-card h3 {
+    color: #333;
+    margin-bottom: 10px;
+}
+
+.add-listing-card p {
+    color: #666;
+    margin-bottom: 20px;
+}
+
+.whatsapp-btn {
+    display: inline-block;
+    background: linear-gradient(to right, #25D366, #128C7E);
+    color: white;
+    padding: 12px 25px;
+    border-radius: 30px;
+    text-decoration: none;
+    font-weight: bold;
+    transition: all 0.3s;
+    margin-bottom: 15px;
+}
+
+.whatsapp-btn:hover {
+    background: linear-gradient(to right, #128C7E, #25D366);
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(37, 211, 102, 0.3);
+}
+
+.contact-info {
+    background: #f1f1f1;
+    padding: 10px;
+    border-radius: 6px;
+    font-weight: 500;
+    color: #333 !important;
+}
+
+/* قسم الوظائف */
+:root {
+    --primary-color: #3498db;
+    --secondary-color: #2c3e50;
+    --accent-color: #e74c3c;
+    --light-color: #ecf0f1;
+    --dark-color: #2c3e50;
+}
+
+.header {
+    background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+    color: white;
+    padding: 2rem;
+    border-radius: 10px;
+    margin-bottom: 2rem;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    position: relative;
+}
+
+.production-badge {
+    background-color: var(--accent-color);
+    color: white;
+    padding: 0.3rem 0.8rem;
+    border-radius: 20px;
+    font-size: 0.8rem;
+    font-weight: bold;
+    position: absolute;
+    top: 1rem;
+    left: 1rem;
+}
+
+.card {
+    border: none;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    margin-bottom: 1.5rem;
+    transition: transform 0.3s;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+}
+
+.card-header {
+    border-radius: 10px 10px 0 0 !important;
+    font-weight: bold;
+}
+
+.job-card {
+    border-left: 4px solid var(--primary-color);
+}
+
+.job-type {
+    display: inline-block;
+    padding: 0.25rem 0.5rem;
+    border-radius: 4px;
+    font-size: 0.8rem;
+    font-weight: bold;
+    margin-left: 0.5rem;
+}
+
+.full-time { background-color: #2ecc71; color: white; }
+.part-time { background-color: #f39c12; color: white; }
+.contract { background-color: #9b59b6; color: white; }
+.freelance { background-color: #e67e22; color: white; }
+
+.filter-section {
+    background-color: white;
+    padding: 1.5rem;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    margin-bottom: 1.5rem;
+}
+
+.btn-primary {
+    background-color: var(--primary-color);
+    border: none;
+}
+
+.btn-danger {
+    background-color: var(--accent-color);
+    border: none;
+}
+
+.btn-primary:hover, .btn-danger:hover {
+    opacity: 0.9;
+}
+
+.hidden {
+    display: none;
+}
+
+.admin-badge {
+    background-color: var(--accent-color);
+    color: white;
+    padding: 0.2rem 0.5rem;
+    border-radius: 4px;
+    font-size: 0.7rem;
+    margin-right: 0.5rem;
+}
+
+.admin-controls {
+    border-top: 1px solid #eee;
+    padding-top: 1rem;
+    margin-top: 1rem;
+}
+
+.success-alert {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    z-index: 1050;
+    animation: fadeInOut 3s ease-in-out;
+}
+
+@keyframes fadeInOut {
+    0%, 100% { opacity: 0; transform: translateY(-20px); }
+    10%, 90% { opacity: 1; transform: translateY(0); }
+}
+
+/* تأثير تغيير نص الشعار */
+.logo {
+    display: flex;
+    align-items: center;
+    position: relative;
+}
+
+#changing-text {
+    margin-right: 10px;
+    min-width: 150px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    transition: all 0.5s ease;
+}
+
+/* تأثير التغيير */
+.text-change {
+    animation: textChange 1s ease-in-out;
+}
+
+@keyframes textChange {
+    0% { opacity: 0; transform: translateY(-10px); }
+    50% { opacity: 0.5; transform: translateY(0); }
+    100% { opacity: 1; transform: translateY(0); }
+}
+
+.logo-image {
+    width: 40px;
+    height: 40px;
+    object-fit: contain;
+    margin-left: 10px;
+    transition: all 0.3s ease;
+    border-radius: 5px;
+}
+
+.logo-image:hover {
+    transform: scale(1.05);
+    box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+}
+
+/* التجاوب مع الشاشات المختلفة */
+@media (max-width: 768px) {
+    .header-content {
+        flex-direction: column;
+        gap: 15px;
+    }
+    
+    .search-bar {
+        max-width: 100%;
+        margin: 10px 0;
+    }
+    
+    .slider {
+        height: 300px;
+    }
+    
+    .slide-content {
+        max-width: 100%;
+    }
+    
+    .discounts-grid {
+        grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+        gap: 20px;
+    }
+    
+    .header {
+        padding: 1.5rem 1rem;
+    }
+    
+    .production-badge {
+        position: relative;
+        top: 0;
+        left: 0;
+        margin-bottom: 1rem;
+        display: inline-block;
+    }
+}
+
+@media (max-width: 480px) {
+    .logo h1 {
+        font-size: 1.5rem;
+    }
+    
+    .slider {
+        height: 250px;
+    }
+    
+    .slide-content h2 {
+        font-size: 1.4rem;
+    }
+    
+    .discounts-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .filters {
+        flex-wrap: nowrap;
+        overflow-x: auto;
+        padding-bottom: 10px;
+        justify-content: flex-start;
+    }
+    
+    .filter-btn {
+        white-space: nowrap;
+    }
+}
+
+
+
+
+
+/* قسم الأقسام */
+.categories {
+    margin: 40px 0;
+    padding: 20px 0;
+}
+
+.categories-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
+    margin-top: 30px;
+}
+
+.category-card {
+    background: white;
+    padding: 25px;
+    border-radius: 12px;
+    text-align: center;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s, box-shadow 0.3s;
+    cursor: pointer;
+}
+
+.category-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+}
+
+.category-icon {
+    width: 60px;
+    height: 60px;
+    background: linear-gradient(to right, #ff7e5f, #feb47b);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 15px;
+    color: white;
+    font-size: 24px;
+}
+
+.category-card h3 {
+    color: #333;
+    margin-bottom: 10px;
+    font-size: 1.2rem;
+}
+
+.category-card p {
+    color: #666;
+    line-height: 1.5;
+}
+
+/* التذييل */
+footer {
+    background: linear-gradient(to right, #2c3e50, #34495e);
+    color: white;
+    padding: 40px 0 20px;
+    margin-top: 50px;
+}
+
+.footer-content {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 30px;
+    margin-bottom: 20px;
+}
+
+.footer-section h3 {
+    margin-bottom: 15px;
+    color: #ff7e5f;
+}
+
+.footer-section p {
+    margin-bottom: 8px;
+    cursor: pointer;
+    transition: color 0.3s;
+}
+
+.footer-section p:hover {
+    color: #ff7e5f;
+}
+
+.social-icons {
+    display: flex;
+    gap: 15px;
+}
+
+.social-icons a {
+    width: 40px;
+    height: 40px;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    text-decoration: none;
+    transition: background 0.3s, transform 0.3s;
+}
+
+.social-icons a:hover {
+    background: #ff7e5f;
+    transform: translateY(-3px);
+}
+
+.copyright {
+    text-align: center;
+    padding-top: 20px;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    margin-top: 20px;
+}
+
+/* الخريطة */
+.nearby-map {
+    margin: 30px 0;
+}
+
+.map-container {
+    height: 400px;
+    background: #f8f9fa;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+}
+
+.map-placeholder {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    color: #666;
+    background: linear-gradient(135deg, #e9ecef, #f8f9fa);
+}
+
+.map-placeholder i {
+    font-size: 3rem;
+    margin-bottom: 15px;
+    color: #ff7e5f;
+}
+
+.map-placeholder p {
+    font-size: 1.1rem;
+    text-align: center;
+}
+
+
+
+/* قسم المحلات الحديثة */
+.new-shops-section {
+    margin: 50px 0;
+    padding: 30px 0;
+}
+
+.section-subtitle {
+    text-align: center;
+    color: #666;
+    margin-bottom: 30px;
+    font-size: 1.1rem;
+}
+
+.new-shops-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 25px;
+    margin-bottom: 40px;
+}
+
+.new-shop-card {
+    background: white;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.new-shop-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+}
+
+.new-shop-image {
+    height: 200px;
+    background-size: cover;
+    background-position: center;
+    position: relative;
+}
+
+.opening-date {
+    position: absolute;
+    top: 15px;
+    left: 15px;
+    background: linear-gradient(to right, #ff7e5f, #feb47b);
+    color: white;
+    padding: 5px 12px;
+    border-radius: 20px;
+    font-size: 0.8rem;
+    font-weight: bold;
+}
+
+.new-shop-info {
+    padding: 20px;
+}
+
+.new-shop-info h3 {
+    color: #333;
+    margin-bottom: 10px;
+    font-size: 1.2rem;
+}
+
+.new-shop-address {
+    color: #666;
+    margin-bottom: 10px;
+    font-size: 0.9rem;
+}
+
+.new-shop-address i {
+    margin-left: 5px;
+    color: #ff7e5f;
+}
+
+.new-shop-desc {
+    color: #777;
+    margin-bottom: 15px;
+    line-height: 1.5;
+    font-size: 0.9rem;
+}
+
+.new-shop-actions {
+    display: flex;
+    gap: 10px;
+}
+
+.location-btn, .share-btn {
+    padding: 8px 15px;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 0.8rem;
+    transition: background 0.3s;
+}
+
+.location-btn {
+    background: #3498db;
+    color: white;
+}
+
+.location-btn:hover {
+    background: #2980b9;
+}
+
+.share-btn {
+    background: #f8f9fa;
+    color: #333;
+}
+
+.share-btn:hover {
+    background: #e9ecef;
+}
+
+/* زر إضافة إعلان */
+.add-listing-container {
+    display: flex;
+    justify-content: center;
+    margin-top: 40px;
+}
+
+.add-listing-card {
+    background: linear-gradient(135deg, #f8f9fa, #e9ecef);
+    border: 2px dashed #ff7e5f;
+    border-radius: 15px;
+    padding: 40px;
+    text-align: center;
+    max-width: 500px;
+    width: 100%;
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.add-listing-card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 10px 25px rgba(255, 126, 95, 0.15);
+}
+
+.add-listing-icon {
+    font-size: 3.5rem;
+    color: #ff7e5f;
+    margin-bottom: 20px;
+}
+
+.add-listing-card h3 {
+    color: #333;
+    margin-bottom: 15px;
+    font-size: 1.5rem;
+}
+
+.add-listing-card p {
+    color: #666;
+    margin-bottom: 25px;
+    line-height: 1.6;
+    font-size: 1rem;
+}
+
+.whatsapp-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    background: linear-gradient(to right, #25D366, #128C7E);
+    color: white;
+    padding: 15px 30px;
+    border-radius: 30px;
+    text-decoration: none;
+    font-weight: bold;
+    transition: all 0.3s;
+    margin-bottom: 20px;
+}
+
+.whatsapp-btn:hover {
+    background: linear-gradient(to right, #128C7E, #25D366);
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px rgba(37, 211, 102, 0.3);
+}
+
+.contact-info {
+    background: rgba(255, 126, 95, 0.1);
+    padding: 12px;
+    border-radius: 8px;
+    font-weight: 600;
+    color: #ff7e5f !important;
+    border: 1px solid rgba(255, 126, 95, 0.2);
+}
+
+/* التجاوب مع الشاشات الصغيرة */
+@media (max-width: 768px) {
+    .new-shops-grid {
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+    
+    .add-listing-card {
+        padding: 30px 20px;
+        margin: 0 15px;
+    }
+    
+    .add-listing-icon {
+        font-size: 2.5rem;
+    }
+    
+    .whatsapp-btn {
+        padding: 12px 25px;
+        font-size: 0.9rem;
+    }
+    
+    .new-shop-actions {
+        flex-direction: column;
+    }
+    
+    .location-btn, .share-btn {
+        width: 100%;
+        text-align: center;
+    }
+}
+
+@media (max-width: 480px) {
+    .section-title {
+        font-size: 1.5rem;
+    }
+    
+    .section-subtitle {
+        font-size: 1rem;
+    }
+    
+    .add-listing-card h3 {
+        font-size: 1.3rem;
+    }
+    
+    .contact-info {
+        font-size: 0.9rem;
+    }
+}
+
+
+
+/* شريط البحث المتقدم */
+.search-bar {
+    position: relative;
+    display: flex;
+    flex: 1;
+    max-width: 500px;
+    margin: 0 20px;
+}
+
+.search-bar input {
+    flex: 1;
+    padding: 12px 15px;
+    border: none;
+    border-radius: 30px 0 0 30px;
+    font-size: 1rem;
+    outline: none;
+    border: 2px solid #ddd;
+    border-right: none;
+    transition: border-color 0.3s;
+}
+
+.search-bar input:focus {
+    border-color: #ff7e5f;
+}
+
+.search-bar button {
+    background: #ff7e5f;
+    color: white;
+    border: none;
+    padding: 0 20px;
+    border-radius: 0 30px 30px 0;
+    cursor: pointer;
+    transition: background 0.3s;
+}
+
+.search-bar button:hover {
+    background: #fe8f73;
+}
+
+/* اقتراحات البحث */
+.search-suggestions {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    background: white;
+    border-radius: 10px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+    margin-top: 5px;
+    max-height: 300px;
+    overflow-y: auto;
+    display: none;
+    z-index: 1000;
+}
+
+.search-suggestions.active {
+    display: block;
+    animation: fadeIn 0.3s ease;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(-10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.suggestion-item {
+    display: flex;
+    align-items: center;
+    padding: 12px 15px;
+    cursor: pointer;
+    transition: background 0.2s;
+    border-bottom: 1px solid #f0f0f0;
+}
+
+.suggestion-item:last-child {
+    border-bottom: none;
+}
+
+.suggestion-item:hover {
+    background: #f8f9fa;
+}
+
+.suggestion-item i {
+    width: 20px;
+    margin-left: 10px;
+    color: #ff7e5f;
+}
+
+.suggestion-content {
+    flex: 1;
+}
+
+.suggestion-title {
+    font-weight: 500;
+    color: #333;
+    margin-bottom: 2px;
+}
+
+.suggestion-type {
+    font-size: 0.8rem;
+    color: #666;
+}
+
+.suggestion-item.no-results {
+    cursor: default;
+    color: #666;
+}
+
+.suggestion-item.no-results:hover {
+    background: white;
+}
+
+.highlight {
+    background: #fff8e1;
+    padding: 2px 4px;
+    border-radius: 3px;
+    color: #ff7e5f;
+    font-weight: bold;
+}
+
+/* تأثير التمييز عند التنقل */
+.highlight {
+    animation: highlightFlash 2s ease;
+}
+
+@keyframes highlightFlash {
+    0%, 100% { background-color: transparent; }
+    50% { background-color: #fff8e1; }
+}
+
+/* التجاوب مع الشاشات الصغيرة */
+@media (max-width: 768px) {
+    .search-bar {
+        max-width: 100%;
+        margin: 10px 0;
+    }
+    
+    .search-suggestions {
+        left: 10px;
+        right: 10px;
+    }
+}
+
+/* تأثيرات التمييز */
+.discount-card, .job-card {
+    transition: all 0.3s ease;
+}
+
+.highlight-flash {
+    animation: highlightFlash 2s ease;
+}
+
+@keyframes highlightFlash {
+    0% { 
+        background-color: transparent;
+        transform: scale(1);
+    }
+    50% { 
+        background-color: #fff8e1;
+        transform: scale(1.02);
+    }
+    100% { 
+        background-color: transparent;
+        transform: scale(1);
+    }
+}
+
+/* تحسين الاقتراحات */
+.suggestion-item {
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.suggestion-item:hover {
+    background: linear-gradient(to right, #fff8e1, #ffffff);
+    transform: translateX(5px);
+}
+
+/* تأثيرات التنقل */
+.section-highlight {
+    animation: sectionHighlight 2s ease;
+}
+
+@keyframes sectionHighlight {
+    0%, 100% { 
+        box-shadow: 0 0 0 0 rgba(255, 126, 95, 0);
+    }
+    50% { 
+        box-shadow: 0 0 0 10px rgba(255, 126, 95, 0.3);
+    }
+}
+
+/* قسم المحلات الحديثة والباقات */
+.shops-plans-section {
+    margin: 50px 0;
+    padding: 40px 0;
+}
+
+.new-shops-content {
+    margin-bottom: 50px;
+    padding: 30px;
+    background: white;
+    border-radius: 15px;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+}
+
+.plans-divider {
+    text-align: center;
+    margin: 50px 0 40px;
+    padding: 30px;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    border-radius: 15px;
+    color: white;
+    position: relative;
+}
+
+.plans-divider::before {
+    content: '';
+    position: absolute;
+    top: -20px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 60px;
+    height: 4px;
+    background: linear-gradient(to right, #ff7e5f, #feb47b);
+    border-radius: 2px;
+}
+
+.plans-divider h3 {
+    font-size: 2rem;
+    margin-bottom: 10px;
+    color: white;
+}
+
+.plans-divider p {
+    font-size: 1.1rem;
+    opacity: 0.9;
+}
+
+/* تحسينات للباقات في القسم المدمج */
+.plans-grid {
+    margin: 40px 0;
+}
+
+/* التنسيق العام للقسم المدمج */
+.shops-plans-section .section-title {
+    font-size: 2.5rem;
+    margin-bottom: 15px;
+    background: linear-gradient(to right, #ff7e5f, #feb47b);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.shops-plans-section .section-subtitle {
+    font-size: 1.2rem;
+    color: #666;
+    margin-bottom: 40px;
+}
+
+/* تحسينات للعرض على الجوال */
+@media (max-width: 768px) {
+    .shops-plans-section {
+        margin: 30px 0;
+        padding: 20px 0;
+    }
+    
+    .new-shops-content {
+        padding: 20px;
+        margin-bottom: 30px;
+    }
+    
+    .plans-divider {
+        margin: 30px 0;
+        padding: 20px;
+    }
+    
+    .plans-divider h3 {
+        font-size: 1.5rem;
+    }
+    
+    .shops-plans-section .section-title {
+        font-size: 2rem;
+    }
+    
+    .shops-plans-section .section-subtitle {
+        font-size: 1rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .plans-divider {
+        padding: 15px;
+    }
+    
+    .plans-divider h3 {
+        font-size: 1.3rem;
+    }
+    
+    .new-shops-content {
+        padding: 15px;
+    }
+}
+/* قسم المحلات الحديثة والباقات */
+.shops-plans-section {
+    margin: 50px 0;
+    padding: 40px 0;
+}
+
+.new-shops-content {
+    margin-bottom: 50px;
+    padding: 30px;
+    background: white;
+    border-radius: 15px;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+}
+
+.plans-divider {
+    text-align: center;
+    margin: 50px 0 40px;
+    padding: 30px;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    border-radius: 15px;
+    color: white;
+    position: relative;
+}
+
+.plans-divider::before {
+    content: '';
+    position: absolute;
+    top: -20px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 60px;
+    height: 4px;
+    background: linear-gradient(to right, #ff7e5f, #feb47b);
+    border-radius: 2px;
+}
+
+.plans-divider h3 {
+    font-size: 2rem;
+    margin-bottom: 10px;
+    color: white;
+}
+
+.plans-divider p {
+    font-size: 1.1rem;
+    opacity: 0.9;
+}
+
+/* تحسينات للباقات في القسم المدمج */
+.plans-grid {
+    margin: 40px 0;
+}
+
+/* التنسيق العام للقسم المدمج */
+.shops-plans-section .section-title {
+    font-size: 2.5rem;
+    margin-bottom: 15px;
+    background: linear-gradient(to right, #ff7e5f, #feb47b);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.shops-plans-section .section-subtitle {
+    font-size: 1.2rem;
+    color: #666;
+    margin-bottom: 40px;
+}
+
+/* تحسينات للعرض على الجوال */
+@media (max-width: 768px) {
+    .shops-plans-section {
+        margin: 30px 0;
+        padding: 20px 0;
+    }
+    
+    .new-shops-content {
+        padding: 20px;
+        margin-bottom: 30px;
+    }
+    
+    .plans-divider {
+        margin: 30px 0;
+        padding: 20px;
+    }
+    
+    .plans-divider h3 {
+        font-size: 1.5rem;
+    }
+    
+    .shops-plans-section .section-title {
+        font-size: 2rem;
+    }
+    
+    .shops-plans-section .section-subtitle {
+        font-size: 1rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .plans-divider {
+        padding: 15px;
+    }
+    
+    .plans-divider h3 {
+        font-size: 1.3rem;
+    }
+    
+    .new-shops-content {
+        padding: 15px;
+    }
+}
+
+
+/* قسم باقات الاشتراك */
+.plans-section {
+    margin: 50px 0;
+    padding: 40px 0;
+    background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+    border-radius: 20px;
+}
+
+.plans-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+    margin: 40px 0;
+}
+
+.plan-card {
+    background: white;
+    border-radius: 15px;
+    padding: 30px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    position: relative;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    border: 2px solid #e9ecef;
+}
+
+.plan-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+}
+
+.plan-card.featured {
+    border-color: #ff7e5f;
+    transform: scale(1.05);
+}
+
+.plan-card.featured:hover {
+    transform: scale(1.05) translateY(-10px);
+}
+
+.plan-badge {
+    position: absolute;
+    top: -12px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: linear-gradient(to right, #ff7e5f, #feb47b);
+    color: white;
+    padding: 8px 20px;
+    border-radius: 20px;
+    font-weight: bold;
+    font-size: 0.9rem;
+    box-shadow: 0 5px 15px rgba(255, 126, 95, 0.3);
+}
+
+.plan-header {
+    text-align: center;
+    margin-bottom: 25px;
+    padding-bottom: 20px;
+    border-bottom: 2px solid #f8f9fa;
+}
+
+.plan-header h3 {
+    color: #2c3e50;
+    font-size: 1.5rem;
+    margin-bottom: 10px;
+    font-weight: 700;
+}
+
+.plan-price {
+    font-size: 2.5rem;
+    font-weight: 800;
+    color: #ff7e5f;
+    margin: 10px 0;
+}
+
+.plan-header p {
+    color: #666;
+    font-size: 0.9rem;
+}
+
+.plan-features {
+    margin-bottom: 30px;
+}
+
+.feature {
+    display: flex;
+    align-items: center;
+    margin-bottom: 15px;
+    padding: 8px 0;
+}
+
+.feature i {
+    color: #28a745;
+    margin-left: 10px;
+    font-size: 1.1rem;
+}
+
+.feature span {
+    color: #333;
+    font-size: 0.95rem;
+}
+
+.plan-select-btn {
+    width: 100%;
+    padding: 15px;
+    background: linear-gradient(to right, #3498db, #2980b9);
+    color: white;
+    border: none;
+    border-radius: 10px;
+    font-size: 1.1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.plan-select-btn:hover {
+    background: linear-gradient(to right, #2980b9, #3498db);
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px rgba(52, 152, 219, 0.3);
+}
+
+.featured-btn {
+    background: linear-gradient(to right, #ff7e5f, #feb47b);
+}
+
+.featured-btn:hover {
+    background: linear-gradient(to right, #feb47b, #ff7e5f);
+    box-shadow: 0 8px 20px rgba(255, 126, 95, 0.3);
+}
+
+.plan-info {
+    text-align: center;
+    margin-top: 40px;
+    padding: 20px;
+    background: white;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+.plan-info p {
+    color: #666;
+    margin-bottom: 15px;
+    font-size: 1.1rem;
+}
+
+/* التجاوب مع الشاشات الصغيرة */
+@media (max-width: 768px) {
+    .plans-grid {
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+    
+    .plan-card.featured {
+        transform: none;
+    }
+    
+    .plan-card.featured:hover {
+        transform: translateY(-10px);
+    }
+    
+    .plan-price {
+        font-size: 2rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .plan-card {
+        padding: 20px;
+    }
+    
+    .plan-header h3 {
+        font-size: 1.3rem;
+    }
+    
+    .plan-select-btn {
+        padding: 12px;
+        font-size: 1rem;
+    }
+}
+
+.plan-select-btn i {
+    margin-left: 8px;
+}
+
+/* تحسين تأثيرات الزر */
+.plan-select-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    transition: all 0.3s ease;
+}
+
+.plan-select-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px rgba(52, 152, 219, 0.4);
+}
+
+.featured-btn:hover {
+    box-shadow: 0 8px 20px rgba(255, 126, 95, 0.4);
+}
+
+/* تحسين أزرار الباقات */
+.plan-select-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    width: 100%;
+    padding: 15px;
+    background: linear-gradient(to right, #25D366, #128C7E);
+    color: white;
+    border: none;
+    border-radius: 10px;
+    font-size: 1.1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    margin-top: 20px;
+}
+
+.plan-select-btn:hover {
+    background: linear-gradient(to right, #128C7E, #25D366);
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px rgba(37, 211, 102, 0.3);
+}
+
+.featured-btn {
+    background: linear-gradient(to right, #ff7e5f, #feb47b);
+}
+
+.featured-btn:hover {
+    background: linear-gradient(to right, #feb47b, #ff7e5f);
+    box-shadow: 0 8px 20px rgba(255, 126, 95, 0.3);
+}
+
+.plan-select-btn i {
+    font-size: 1.2rem;
+}
+
+/* تحسين البطاقات */
+.plan-card {
+    text-align: center;
+    transition: all 0.3s ease;
+}
+
+.plan-card:hover {
+    transform: translateY(-5px);
+}
+
+/* زر الواتساب الإضافي */
+.whatsapp-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: linear-gradient(to right, #25D366, #128C7E);
+    color: white;
+    padding: 12px 25px;
+    border-radius: 30px;
+    text-decoration: none;
+    font-weight: bold;
+    transition: all 0.3s ease;
+}
+
+.whatsapp-btn:hover {
+    background: linear-gradient(to right, #128C7E, #25D366);
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px rgba(37, 211, 102, 0.3);
+    color: white;
+}
+
+/* معلومات الباقة */
+.plan-info {
+    text-align: center;
+    margin-top: 40px;
+    padding: 25px;
+    background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+    border-radius: 15px;
+    border: 2px dashed #ff7e5f;
+}
+
+.plan-info p {
+    color: #666;
+    margin-bottom: 15px;
+    font-size: 1.1rem;
+    font-weight: 500;
+}
+
+
+/* قسم العقارات */
+.real-estate-section {
+    margin: 50px 0;
+    padding: 40px 0;
+}
+
+.real-estate-filters {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin: 30px 0;
+    padding: 20px;
+    background: white;
+    border-radius: 15px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+.real-estate-filters .filter-btn {
+    padding: 12px 25px;
+    background: #f8f9fa;
+    border: 2px solid #e9ecef;
+    border-radius: 25px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-weight: 600;
+}
+
+.real-estate-filters .filter-btn:hover,
+.real-estate-filters .filter-btn.active {
+    background: linear-gradient(to right, #ff7e5f, #feb47b);
+    color: white;
+    border-color: #ff7e5f;
+    transform: translateY(-2px);
+}
+
+.real-estate-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    gap: 30px;
+    margin: 40px 0;
+}
+
+.property-card {
+    background: white;
+    border-radius: 15px;
+    overflow: hidden;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.property-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.15);
+}
+
+.property-image {
+    height: 250px;
+    background-size: cover;
+    background-position: center;
+    position: relative;
+}
+
+.property-badge {
+    position: absolute;
+    top: 15px;
+    left: 15px;
+    background: linear-gradient(to right, #ff7e5f, #feb47b);
+    color: white;
+    padding: 8px 15px;
+    border-radius: 20px;
+    font-weight: bold;
+    font-size: 0.9rem;
+}
+
+.property-price {
+    position: absolute;
+    bottom: 15px;
+    left: 15px;
+    background: rgba(0, 0, 0, 0.8);
+    color: white;
+    padding: 8px 15px;
+    border-radius: 20px;
+    font-weight: bold;
+    font-size: 1.1rem;
+}
+
+.property-info {
+    padding: 25px;
+}
+
+.property-info h3 {
+    color: #2c3e50;
+    margin-bottom: 10px;
+    font-size: 1.3rem;
+    font-weight: 700;
+}
+
+.property-location {
+    color: #666;
+    margin-bottom: 15px;
+    font-size: 0.9rem;
+}
+
+.property-location i {
+    color: #ff7e5f;
+    margin-left: 5px;
+}
+
+.property-details {
+    display: flex;
+    gap: 15px;
+    margin-bottom: 15px;
+    flex-wrap: wrap;
+}
+
+.property-details span {
+    background: #f8f9fa;
+    padding: 8px 12px;
+    border-radius: 20px;
+    font-size: 0.85rem;
+    color: #666;
+}
+
+.property-details i {
+    color: #ff7e5f;
+    margin-left: 5px;
+}
+
+.property-description {
+    color: #777;
+    line-height: 1.6;
+    margin-bottom: 20px;
+    font-size: 0.95rem;
+}
+
+.property-actions {
+    display: flex;
+    gap: 10px;
+}
+
+.contact-btn, .whatsapp-btn {
+    flex: 1;
+    padding: 12px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: 600;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+}
+
+.contact-btn {
+    background: #3498db;
+    color: white;
+}
+
+.contact-btn:hover {
+    background: #2980b9;
+    transform: translateY(-2px);
+}
+
+.whatsapp-btn {
+    background: #25D366;
+    color: white;
+}
+
+.whatsapp-btn:hover {
+    background: #128C7E;
+    transform: translateY(-2px);
+}
+
+/* قسم إضافة عقار */
+.add-property-container {
+    display: flex;
+    justify-content: center;
+    margin-top: 50px;
+}
+
+.add-property-card {
+    background: linear-gradient(135deg, #f8f9fa, #e9ecef);
+    border: 2px dashed #ff7e5f;
+    border-radius: 15px;
+    padding: 40px;
+    text-align: center;
+    max-width: 500px;
+    width: 100%;
+}
+
+.add-property-icon {
+    font-size: 3.5rem;
+    color: #ff7e5f;
+    margin-bottom: 20px;
+}
+
+.add-property-card h3 {
+    color: #2c3e50;
+    margin-bottom: 15px;
+    font-size: 1.5rem;
+}
+
+.add-property-card p {
+    color: #666;
+    margin-bottom: 25px;
+    line-height: 1.6;
+}
+
+/* التجاوب مع الشاشات الصغيرة */
+@media (max-width: 768px) {
+    .real-estate-grid {
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+    
+    .real-estate-filters {
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    .real-estate-filters .filter-btn {
+        width: 200px;
+        text-align: center;
+    }
+    
+    .property-actions {
+        flex-direction: column;
+    }
+    
+    .add-property-card {
+        padding: 30px 20px;
+        margin: 0 15px;
+    }
+}
+
+@media (max-width: 480px) {
+    .property-card {
+        margin: 0 10px;
+    }
+    
+    .property-info {
+        padding: 20px;
+    }
+    
+    .property-details {
+        justify-content: center;
+    }
+}
+
+
+/* تحسين فلترة العقارات */
+.real-estate-filters {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin: 30px 0;
+    padding: 20px;
+    background: white;
+    border-radius: 15px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+.real-estate-filters .filter-btn {
+    padding: 12px 25px;
+    background: #f8f9fa;
+    border: 2px solid #e9ecef;
+    border-radius: 25px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-weight: 600;
+}
+
+.real-estate-filters .filter-btn:hover,
+.real-estate-filters .filter-btn.active {
+    background: linear-gradient(to right, #ff7e5f, #feb47b);
+    color: white;
+    border-color: #ff7e5f;
+    transform: translateY(-2px);
+}
+
+/* تحسين بطاقات العقارات */
+.property-card {
+    transition: all 0.3s ease;
+    display: block; /* مهم للتأكد من الظهور */
+}
+
+.real-estate-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    gap: 30px;
+    margin: 40px 0;
+}

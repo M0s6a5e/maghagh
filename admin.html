@@ -1,0 +1,797 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>لوحة تحكم الإدارة - موقع خصومات</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        /* أنماط عامة */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            background-color: #f8f9fa;
+            color: #333;
+            line-height: 1.6;
+        }
+        
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 15px;
+        }
+        
+        /* شريط التنقل */
+        .admin-header {
+            background: linear-gradient(to right, #2c3e50, #34495e);
+            color: white;
+            padding: 15px 0;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+        
+        .admin-nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .admin-logo {
+            display: flex;
+            align-items: center;
+        }
+        
+        .admin-logo h1 {
+            color: white;
+            font-size: 1.8rem;
+            margin-right: 10px;
+        }
+        
+        .admin-logo i {
+            color: white;
+            font-size: 2rem;
+        }
+        
+        .admin-user {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+        
+        .admin-user img {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            object-fit: cover;
+        }
+        
+        /* الهيكل الرئيسي */
+        .admin-container {
+            display: flex;
+            min-height: calc(100vh - 70px);
+        }
+        
+        /* الشريط الجانبي */
+        .admin-sidebar {
+            width: 250px;
+            background: #2c3e50;
+            color: white;
+            padding: 20px 0;
+        }
+        
+        .admin-menu {
+            list-style: none;
+        }
+        
+        .admin-menu li {
+            margin-bottom: 5px;
+        }
+        
+        .admin-menu a {
+            display: flex;
+            align-items: center;
+            padding: 12px 20px;
+            color: #ecf0f1;
+            text-decoration: none;
+            transition: all 0.3s;
+            gap: 10px;
+        }
+        
+        .admin-menu a:hover, .admin-menu a.active {
+            background: #34495e;
+            border-left: 4px solid #3498db;
+        }
+        
+        .admin-menu i {
+            width: 20px;
+            text-align: center;
+        }
+        
+        /* المحتوى الرئيسي */
+        .admin-content {
+            flex: 1;
+            padding: 20px;
+            background: #f8f9fa;
+        }
+        
+        .admin-section {
+            background: white;
+            border-radius: 10px;
+            padding: 25px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+            margin-bottom: 25px;
+        }
+        
+        .section-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+            padding-bottom: 15px;
+            border-bottom: 1px solid #eee;
+        }
+        
+        .section-header h2 {
+            color: #2c3e50;
+            margin: 0;
+        }
+        
+        .add-btn {
+            padding: 8px 15px;
+            background: linear-gradient(to right, #3498db, #2980b9);
+            color: white;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+            font-weight: 500;
+            transition: all 0.3s;
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+        
+        .add-btn:hover {
+            background: linear-gradient(to right, #2980b9, #3498db);
+        }
+        
+        /* إحصائيات سريعة */
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+            margin-bottom: 25px;
+        }
+        
+        .stat-card {
+            background: white;
+            border-radius: 10px;
+            padding: 20px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+            text-align: center;
+        }
+        
+        .stat-icon {
+            font-size: 2.5rem;
+            margin-bottom: 15px;
+        }
+        
+        .stat-number {
+            font-size: 2rem;
+            font-weight: bold;
+            margin-bottom: 5px;
+        }
+        
+        .stat-label {
+            color: #666;
+            font-size: 0.9rem;
+        }
+        
+        /* الجداول */
+        .data-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 15px;
+        }
+        
+        .data-table th, .data-table td {
+            padding: 12px 15px;
+            text-align: right;
+            border-bottom: 1px solid #eee;
+        }
+        
+        .data-table th {
+            background: #f8f9fa;
+            font-weight: 600;
+            color: #2c3e50;
+        }
+        
+        .data-table tr:hover {
+            background: #f8f9fa;
+        }
+        
+        .action-buttons {
+            display: flex;
+            gap: 8px;
+        }
+        
+        .edit-btn, .delete-btn {
+            padding: 6px 10px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 0.8rem;
+            transition: all 0.3s;
+        }
+        
+        .edit-btn {
+            background: #3498db;
+            color: white;
+        }
+        
+        .edit-btn:hover {
+            background: #2980b9;
+        }
+        
+        .delete-btn {
+            background: #e74c3c;
+            color: white;
+        }
+        
+        .delete-btn:hover {
+            background: #c0392b;
+        }
+        
+        /* النماذج */
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.5);
+            z-index: 1000;
+            justify-content: center;
+            align-items: center;
+        }
+        
+        .modal-content {
+            background: white;
+            border-radius: 10px;
+            width: 100%;
+            max-width: 600px;
+            padding: 30px;
+            position: relative;
+        }
+        
+        .close-modal {
+            position: absolute;
+            top: 15px;
+            left: 15px;
+            background: none;
+            border: none;
+            font-size: 1.5rem;
+            cursor: pointer;
+            color: #666;
+        }
+        
+        .form-group {
+            margin-bottom: 20px;
+        }
+        
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 500;
+            color: #2c3e50;
+        }
+        
+        .form-group input, .form-group select, .form-group textarea {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #ddd;
+            border-radius: 6px;
+            font-size: 1rem;
+        }
+        
+        .form-group textarea {
+            resize: vertical;
+            min-height: 100px;
+        }
+        
+        .form-actions {
+            display: flex;
+            justify-content: flex-end;
+            gap: 10px;
+            margin-top: 20px;
+        }
+        
+        .submit-btn {
+            padding: 10px 20px;
+            background: linear-gradient(to right, #27ae60, #229954);
+            color: white;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+            font-weight: 500;
+        }
+        
+        .submit-btn:hover {
+            background: linear-gradient(to right, #229954, #27ae60);
+        }
+        
+        .cancel-btn {
+            padding: 10px 20px;
+            background: #95a5a6;
+            color: white;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+            font-weight: 500;
+        }
+        
+        .cancel-btn:hover {
+            background: #7f8c8d;
+        }
+        
+        /* التجاوب مع الشاشات المختلفة */
+        @media (max-width: 992px) {
+            .admin-container {
+                flex-direction: column;
+            }
+            
+            .admin-sidebar {
+                width: 100%;
+                padding: 10px 0;
+            }
+            
+            .admin-menu {
+                display: flex;
+                overflow-x: auto;
+                padding: 0 10px;
+            }
+            
+            .admin-menu li {
+                margin-bottom: 0;
+                margin-right: 5px;
+            }
+            
+            .admin-menu a {
+                padding: 10px 15px;
+                white-space: nowrap;
+            }
+            
+            .stats-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .admin-nav {
+                flex-direction: column;
+                gap: 15px;
+            }
+            
+            .stats-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .section-header {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 10px;
+            }
+            
+            .data-table {
+                display: block;
+                overflow-x: auto;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- رأس لوحة التحكم -->
+    <header class="admin-header">
+        <div class="container">
+            <div class="admin-nav">
+                <div class="admin-logo">
+                    <i class="fas fa-cogs"></i>
+                    <h1>لوحة التحكم</h1>
+                </div>
+                
+                <div class="admin-user">
+                    <span>مرحباً، المدير</span>
+                    <img src="https://ui-avatars.com/api/?name=المدير&background=3498db&color=fff" alt="Admin">
+                </div>
+            </div>
+        </div>
+    </header>
+    
+    <!-- الهيكل الرئيسي -->
+    <div class="admin-container">
+        <!-- الشريط الجانبي -->
+        <aside class="admin-sidebar">
+            <ul class="admin-menu">
+                <li><a href="#" class="active"><i class="fas fa-tachometer-alt"></i> لوحة التحكم</a></li>
+                <li><a href="#"><i class="fas fa-percent"></i> إدارة الخصومات</a></li>
+                <li><a href="#"><i class="fas fa-store"></i> إدارة المحلات</a></li>
+                <li><a href="#"><i class="fas fa-briefcase"></i> إدارة الوظائف</a></li>
+                <li><a href="#"><i class="fas fa-gift"></i> إدارة الجوائز</a></li>
+                <li><a href="#"><i class="fas fa-users"></i> إدارة المستخدمين</a></li>
+                <li><a href="#"><i class="fas fa-chart-bar"></i> الإحصائيات</a></li>
+                <li><a href="#"><i class="fas fa-cog"></i> الإعدادات</a></li>
+                <li><a href="index.html"><i class="fas fa-home"></i> العودة للموقع</a></li>
+            </ul>
+        </aside>
+        
+        <!-- المحتوى الرئيسي -->
+        <main class="admin-content">
+            <!-- إحصائيات سريعة -->
+            <div class="stats-grid">
+                <div class="stat-card">
+                    <div class="stat-icon" style="color: #3498db;">
+                        <i class="fas fa-users"></i>
+                    </div>
+                    <div class="stat-number">1,248</div>
+                    <div class="stat-label">إجمالي المستخدمين</div>
+                </div>
+                
+                <div class="stat-card">
+                    <div class="stat-icon" style="color: #27ae60;">
+                        <i class="fas fa-store"></i>
+                    </div>
+                    <div class="stat-number">356</div>
+                    <div class="stat-label">المحلات المسجلة</div>
+                </div>
+                
+                <div class="stat-card">
+                    <div class="stat-icon" style="color: #e74c3c;">
+                        <i class="fas fa-percent"></i>
+                    </div>
+                    <div class="stat-number">892</div>
+                    <div class="stat-label">عروض الخصومات</div>
+                </div>
+                
+                <div class="stat-card">
+                    <div class="stat-icon" style="color: #f39c12;">
+                        <i class="fas fa-gift"></i>
+                    </div>
+                    <div class="stat-number">124</div>
+                    <div class="stat-label">الجوائز المستبدلة</div>
+                </div>
+            </div>
+            
+            <!-- قسم إدارة الخصومات -->
+            <div class="admin-section">
+                <div class="section-header">
+                    <h2>إدارة الخصومات</h2>
+                    <button class="add-btn" id="addDiscountBtn">
+                        <i class="fas fa-plus"></i> إضافة خصم جديد
+                    </button>
+                </div>
+                
+                <table class="data-table">
+                    <thead>
+                        <tr>
+                            <th>اسم الخصم</th>
+                            <th>المحل</th>
+                            <th>نسبة الخصم</th>
+                            <th>الحالة</th>
+                            <th>الإجراءات</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>خصم نهاية الموسم</td>
+                            <td>متجر الأزياء الحديثة</td>
+                            <td>40%</td>
+                            <td><span style="color: #27ae60;">نشط</span></td>
+                            <td>
+                                <div class="action-buttons">
+                                    <button class="edit-btn"><i class="fas fa-edit"></i> تعديل</button>
+                                    <button class="delete-btn"><i class="fas fa-trash"></i> حذف</button>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>عرض الصيف</td>
+                            <td>سوق الخضار الطازج</td>
+                            <td>25%</td>
+                            <td><span style="color: #27ae60;">نشط</span></td>
+                            <td>
+                                <div class="action-buttons">
+                                    <button class="edit-btn"><i class="fas fa-edit"></i> تعديل</button>
+                                    <button class="delete-btn"><i class="fas fa-trash"></i> حذف</button>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>تخفيضات التكنولوجيا</td>
+                            <td>متجر التقنية</td>
+                            <td>30%</td>
+                            <td><span style="color: #e74c3c;">غير نشط</span></td>
+                            <td>
+                                <div class="action-buttons">
+                                    <button class="edit-btn"><i class="fas fa-edit"></i> تعديل</button>
+                                    <button class="delete-btn"><i class="fas fa-trash"></i> حذف</button>
+                                </div>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            
+            <!-- قسم إدارة المحلات -->
+            <div class="admin-section">
+                <div class="section-header">
+                    <h2>إدارة المحلات</h2>
+                    <button class="add-btn" id="addShopBtn">
+                        <i class="fas fa-plus"></i> إضافة محل جديد
+                    </button>
+                </div>
+                
+                <table class="data-table">
+                    <thead>
+                        <tr>
+                            <th>اسم المحل</th>
+                            <th>النوع</th>
+                            <th>المكان</th>
+                            <th>تاريخ الإضافة</th>
+                            <th>الإجراءات</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>كافيه النخيل</td>
+                            <td>مقاهي</td>
+                            <td>حي الورود</td>
+                            <td>2023-01-15</td>
+                            <td>
+                                <div class="action-buttons">
+                                    <button class="edit-btn"><i class="fas fa-edit"></i> تعديل</button>
+                                    <button class="delete-btn"><i class="fas fa-trash"></i> حذف</button>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>مطعم اللذيدة</td>
+                            <td>مطاعم</td>
+                            <td>شارع الأمير محمد</td>
+                            <td>2022-12-05</td>
+                            <td>
+                                <div class="action-buttons">
+                                    <button class="edit-btn"><i class="fas fa-edit"></i> تعديل</button>
+                                    <button class="delete-btn"><i class="fas fa-trash"></i> حذف</button>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>صالون الأنيق</td>
+                            <td>تجميل</td>
+                            <td>شارع الملك عبدالله</td>
+                            <td>2023-02-20</td>
+                            <td>
+                                <div class="action-buttons">
+                                    <button class="edit-btn"><i class="fas fa-edit"></i> تعديل</button>
+                                    <button class="delete-btn"><i class="fas fa-trash"></i> حذف</button>
+                                </div>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </main>
+    </div>
+    
+    <!-- نموذج إضافة خصم -->
+    <div class="modal" id="discountModal">
+        <div class="modal-content">
+            <button class="close-modal" id="closeDiscountModal">&times;</button>
+            <h2>إضافة خصم جديد</h2>
+            
+            <form id="discountForm">
+                <div class="form-group">
+                    <label for="discountName">اسم الخصم</label>
+                    <input type="text" id="discountName" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="discountShop">المحل</label>
+                    <select id="discountShop" required>
+                        <option value="">اختر المحل</option>
+                        <option value="1">متجر الأزياء الحديثة</option>
+                        <option value="2">سوق الخضار الطازج</option>
+                        <option value="3">متجر التقنية</option>
+                    </select>
+                </div>
+                
+                <div class="form-group">
+                    <label for="discountPercentage">نسبة الخصم</label>
+                    <input type="number" id="discountPercentage" min="1" max="100" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="discountDescription">وصف الخصم</label>
+                    <textarea id="discountDescription" required></textarea>
+                </div>
+                
+                <div class="form-group">
+                    <label for="discountStatus">الحالة</label>
+                    <select id="discountStatus" required>
+                        <option value="active">نشط</option>
+                        <option value="inactive">غير نشط</option>
+                    </select>
+                </div>
+                
+                <div class="form-actions">
+                    <button type="button" class="cancel-btn" id="cancelDiscount">إلغاء</button>
+                    <button type="submit" class="submit-btn">حفظ الخصم</button>
+                </div>
+            </form>
+        </div>
+    </div>
+    
+    <!-- نموذج إضافة محل -->
+    <div class="modal" id="shopModal">
+        <div class="modal-content">
+            <button class="close-modal" id="closeShopModal">&times;</button>
+            <h2>إضافة محل جديد</h2>
+            
+            <form id="shopForm">
+                <div class="form-group">
+                    <label for="shopName">اسم المحل</label>
+                    <input type="text" id="shopName" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="shopType">نوع المحل</label>
+                    <select id="shopType" required>
+                        <option value="">اختر النوع</option>
+                        <option value="clothing">ملابس</option>
+                        <option value="restaurant">مطعم</option>
+                        <option value="electronics">إلكترونيات</option>
+                        <option value="cafe">مقاهي</option>
+                        <option value="beauty">تجميل</option>
+                    </select>
+                </div>
+                
+                <div class="form-group">
+                    <label for="shopLocation">المكان</label>
+                    <input type="text" id="shopLocation" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="shopDescription">وصف المحل</label>
+                    <textarea id="shopDescription" required></textarea>
+                </div>
+                
+                <div class="form-group">
+                    <label for="shopImage">صورة المحل (رابط)</label>
+                    <input type="url" id="shopImage">
+                </div>
+                
+                <div class="form-actions">
+                    <button type="button" class="cancel-btn" id="cancelShop">إلغاء</button>
+                    <button type="submit" class="submit-btn">حفظ المحل</button>
+                </div>
+            </form>
+        </div>
+    </div>
+    
+    <script>
+        // JavaScript للوحة التحكم
+        document.addEventListener('DOMContentLoaded', function() {
+            // عناصر النماذج
+            const discountModal = document.getElementById('discountModal');
+            const shopModal = document.getElementById('shopModal');
+            const addDiscountBtn = document.getElementById('addDiscountBtn');
+            const addShopBtn = document.getElementById('addShopBtn');
+            const closeDiscountModal = document.getElementById('closeDiscountModal');
+            const closeShopModal = document.getElementById('closeShopModal');
+            const cancelDiscount = document.getElementById('cancelDiscount');
+            const cancelShop = document.getElementById('cancelShop');
+            const discountForm = document.getElementById('discountForm');
+            const shopForm = document.getElementById('shopForm');
+            
+            // فتح نموذج إضافة خصم
+            addDiscountBtn.addEventListener('click', function() {
+                discountModal.style.display = 'flex';
+            });
+            
+            // فتح نموذج إضافة محل
+            addShopBtn.addEventListener('click', function() {
+                shopModal.style.display = 'flex';
+            });
+            
+            // إغلاق النماذج
+            function setupModalClose(closeBtn, modal, cancelBtn) {
+                closeBtn.addEventListener('click', function() {
+                    modal.style.display = 'none';
+                });
+                
+                cancelBtn.addEventListener('click', function() {
+                    modal.style.display = 'none';
+                });
+                
+                modal.addEventListener('click', function(e) {
+                    if (e.target === modal) {
+                        modal.style.display = 'none';
+                    }
+                });
+            }
+            
+            setupModalClose(closeDiscountModal, discountModal, cancelDiscount);
+            setupModalClose(closeShopModal, shopModal, cancelShop);
+            
+            // تقديم نموذج إضافة خصم
+            discountForm.addEventListener('submit', function(e) {
+                e.preventDefault();
+                
+                const discountName = document.getElementById('discountName').value;
+                const discountShop = document.getElementById('discountShop');
+                const shopName = discountShop.options[discountShop.selectedIndex].text;
+                
+                alert(`تم إضافة خصم "${discountName}" لـ "${shopName}" بنجاح!`);
+                
+                discountForm.reset();
+                discountModal.style.display = 'none';
+                
+                // هنا يمكنك إضافة كود إرسال البيانات إلى الخادم
+            });
+            
+            // تقديم نموذج إضافة محل
+            shopForm.addEventListener('submit', function(e) {
+                e.preventDefault();
+                
+                const shopName = document.getElementById('shopName').value;
+                
+                alert(`تم إضافة محل "${shopName}" بنجاح!`);
+                
+                shopForm.reset();
+                shopModal.style.display = 'none';
+                
+                // هنا يمكنك إضافة كود إرسال البيانات إلى الخادم
+            });
+            
+            // أحداث أزرار التعديل والحذف في الجداول
+            document.querySelectorAll('.edit-btn').forEach(btn => {
+                btn.addEventListener('click', function() {
+                    const row = this.closest('tr');
+                    const name = row.querySelector('td:first-child').textContent;
+                    alert(`سيتم فتح نموذج لتعديل: ${name}`);
+                    // هنا يمكنك فتح النموذج مع تحميل البيانات
+                });
+            });
+            
+            document.querySelectorAll('.delete-btn').forEach(btn => {
+                btn.addEventListener('click', function() {
+                    const row = this.closest('tr');
+                    const name = row.querySelector('td:first-child').textContent;
+                    
+                    if (confirm(`هل أنت متأكد من حذف ${name}؟`)) {
+                        alert(`تم حذف ${name} بنجاح!`);
+                        // هنا يمكنك إضافة كود الحذف الفعلي
+                    }
+                });
+            });
+            
+            // تحديث الإحصائيات بشكل دوري (محاكاة)
+            setInterval(() => {
+                const statNumbers = document.querySelectorAll('.stat-number');
+                statNumbers.forEach(stat => {
+                    const currentValue = parseInt(stat.textContent);
+                    const randomIncrement = Math.floor(Math.random() * 5);
+                    stat.textContent = currentValue + randomIncrement;
+                });
+            }, 10000);
+        });
+    </script>
+</body>
+</html>
