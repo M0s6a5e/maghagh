@@ -1,9 +1,9 @@
-DOCTYPE html>
+<!DOCTYPE html>
 <html lang="ar" dir="rtl">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Spotify - Web Playertitle>
+    <title>Spotify - Web Player</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
         :root {
@@ -585,7 +585,7 @@ DOCTYPE html>
                 grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
                 gap: 16px;
             }
-           
+            
             .player-controls {
                 min-width: 250px;
             }
@@ -595,31 +595,31 @@ DOCTYPE html>
             .sidebar {
                 width: 200px;
             }
-           
+            
             .logo svg {
                 width: 110px;
             }
-           
+            
             .nav-item {
                 padding: 8px 12px;
                 font-size: 13px;
             }
-           
+            
             .player-bar {
                 flex-direction: column;
                 height: auto;
                 padding: 16px;
             }
-           
+            
             .now-playing, .player-controls, .extra-controls {
                 width: 100%;
                 justify-content: center;
             }
-           
+            
             .now-playing {
                 margin-bottom: 12px;
             }
-           
+            
             .extra-controls {
                 margin-top: 12px;
             }
@@ -635,33 +635,33 @@ DOCTYPE html>
                 z-index: 1000;
                 transition: right 0.3s ease;
             }
-           
+            
             .sidebar.active {
                 right: 0;
             }
-           
+            
             .mobile-menu-btn {
                 display: block;
             }
-           
+            
             .content-area {
                 padding: 0 16px 16px;
             }
-           
+            
             .content-title {
                 font-size: 24px;
             }
-           
+            
             .tracks-grid {
                 grid-template-columns: repeat(auto-fill, minmax(130px, 1fr));
                 gap: 12px;
             }
-           
+            
             .track-card {
                 padding: 12px;
                 min-height: 200px;
             }
-           
+            
             .file-access-section {
                 padding: 16px;
             }
@@ -671,43 +671,43 @@ DOCTYPE html>
             .top-bar {
                 padding: 12px 16px;
             }
-           
+            
             .user-name {
                 display: none;
             }
-           
+            
             .user-menu {
                 padding: 6px;
             }
-           
+            
             .content-title {
                 font-size: 20px;
             }
-           
+            
             .tracks-grid {
                 grid-template-columns: repeat(auto-fill, minmax(110px, 1fr));
             }
-           
+            
             .track-card {
                 min-height: 180px;
             }
-           
+            
             .track-title {
                 font-size: 14px;
             }
-           
+            
             .track-artist {
                 font-size: 12px;
             }
-           
+            
             .control-buttons {
                 gap: 8px;
             }
-           
+            
             .progress-container {
                 gap: 6px;
             }
-           
+            
             .progress-time {
                 min-width: 30px;
                 font-size: 10px;
@@ -718,16 +718,16 @@ DOCTYPE html>
             .tracks-grid {
                 grid-template-columns: repeat(2, 1fr);
             }
-           
+            
             .access-btn {
                 padding: 10px 20px;
                 font-size: 13px;
             }
-           
+            
             .player-controls {
                 min-width: 100%;
             }
-           
+            
             .volume-bar {
                 width: 60px;
             }
@@ -766,172 +766,172 @@ DOCTYPE html>
         .overlay.active {
             display: block;
         }
-    style>
-head>
+    </style>
+</head>
 <body>
-   
+    <!-- الشريط العلوي -->
     <div class="top-bar">
         <div style="display: flex; align-items: center; gap: 12px;">
             <button class="mobile-menu-btn" id="mobileMenuBtn">
-                <i class="fas fa-bars">i>
-            button>
+                <i class="fas fa-bars"></i>
+            </button>
             <div class="nav-buttons">
                 <button class="nav-btn">
-                    <i class="fas fa-chevron-right">i>
-                button>
+                    <i class="fas fa-chevron-right"></i>
+                </button>
                 <button class="nav-btn">
-                    <i class="fas fa-chevron-left">i>
-                button>
-            div>
-        div>
-       
+                    <i class="fas fa-chevron-left"></i>
+                </button>
+            </div>
+        </div>
+        
         <div class="user-menu">
             <div class="user-avatar">
-                <i class="fas fa-user">i>
-            div>
-            <div class="user-name">المستخدمdiv>
-            <i class="fas fa-chevron-down">i>
-        div>
-    div>
+                <i class="fas fa-user"></i>
+            </div>
+            <div class="user-name">المستخدم</div>
+            <i class="fas fa-chevron-down"></i>
+        </div>
+    </div>
 
-   
-    <div class="overlay" id="overlay">div>
+    <!-- طبقة التعتيم -->
+    <div class="overlay" id="overlay"></div>
 
-   
+    <!-- المحتوى الرئيسي -->
     <div class="main-container">
-       
+        <!-- الشريط الجانبي -->
         <div class="sidebar" id="sidebar">
             <div class="logo">
                 <svg viewBox="0 0 131 40" xmlns="http://www.w3.org/2000/svg">
                     <path d="M62.9 11.7c-7.2 0-12.9 5.7-12.9 12.9s5.7 12.9 12.9 12.9 12.9-5.7 12.9-12.9-5.7-12.9-12.9-12.9zm0 21.5c-4.7 0-8.6-3.9-8.6-8.6s3.9-8.6 8.6-8.6 8.6 3.9 8.6 8.6-3.9 8.6-8.6 8.6zm34.5-21.5c-7.2 0-12.9 5.7-12.9 12.9s5.7 12.9 12.9 12.9 12.9-5.7 12.9-12.9-5.7-12.9-12.9-12.9zm0 21.5c-4.7 0-8.6-3.9-8.6-8.6s3.9-8.6 8.6-8.6 8.6 3.9 8.6 8.6-3.9 8.6-8.6 8.6zm18.8-21.5c-7.2 0-12.9 5.7-12.9 12.9s5.7 12.9 12.9 12.9 12.9-5.7 12.9-12.9-5.7-12.9-12.9-12.9zm0 21.5c-4.7 0-8.6-3.9-8.6-8.6s3.9-8.6 8.6-8.6 8.6 3.9 8.6 8.6-3.9 8.6-8.6 8.6z" fill="#ffffff"/>
-                svg>
-            div>
-           
+                </svg>
+            </div>
+            
             <div class="nav-section">
                 <a href="#" class="nav-item active">
-                    <i class="fas fa-home">i>
-                    <span>الرئيسيةspan>
-                a>
+                    <i class="fas fa-home"></i>
+                    <span>الرئيسية</span>
+                </a>
                 <a href="#" class="nav-item">
-                    <i class="fas fa-search">i>
-                    <span>بحثspan>
-                a>
+                    <i class="fas fa-search"></i>
+                    <span>بحث</span>
+                </a>
                 <a href="#" class="nav-item">
-                    <i class="fas fa-layer-group">i>
-                    <span>مكتبتكspan>
-                a>
-            div>
-           
+                    <i class="fas fa-layer-group"></i>
+                    <span>مكتبتك</span>
+                </a>
+            </div>
+            
             <div class="library-section">
                 <div class="library-header">
-                    <span>قوائم التشغيلspan>
-                    <i class="fas fa-plus">i>
-                div>
-               
-                <div class="playlist-item">قائمة التشغيل #1div>
-                <div class="playlist-item">المفضلةdiv>
-                <div class="playlist-item">اكتشاف الأسبوعdiv>
-                <div class="playlist-item">أغاني الاسترخاءdiv>
-                <div class="playlist-item">أغاني السفرdiv>
-            div>
-        div>
+                    <span>قوائم التشغيل</span>
+                    <i class="fas fa-plus"></i>
+                </div>
+                
+                <div class="playlist-item">قائمة التشغيل #1</div>
+                <div class="playlist-item">المفضلة</div>
+                <div class="playlist-item">اكتشاف الأسبوع</div>
+                <div class="playlist-item">أغاني الاسترخاء</div>
+                <div class="playlist-item">أغاني السفر</div>
+            </div>
+        </div>
 
-       
+        <!-- منطقة المحتوى -->
         <div class="content-area">
             <div class="content-header">
-                <h1 class="content-title">مرحباً بعودتكh1>
-            div>
+                <h1 class="content-title">مرحباً بعودتك</h1>
+            </div>
 
             <div class="file-access-section">
-                <h2>استمع إلى الموسيقى من هاتفكh2>
-                <p>اختر ملفات الموسيقى من جهازك للبدءp>
+                <h2>استمع إلى الموسيقى من هاتفك</h2>
+                <p>اختر ملفات الموسيقى من جهازك للبدء</p>
                 <button class="access-btn" id="accessMusicBtn">
-                    <i class="fas fa-folder-open">i>
+                    <i class="fas fa-folder-open"></i>
                     فتح ملفات الموسيقى
-                button>
+                </button>
                 <input type="file" id="musicFileInput" accept="audio/*" multiple style="display: none;">
                 <p id="fileStatus" style="margin-top: 16px; color: var(--spotify-light-gray); font-size: 14px;">
                     لم يتم تحميل أي ملفات موسيقية بعد
-                p>
-            div>
+                </p>
+            </div>
 
-            <h2 style="font-size: 20px; margin-bottom: 16px;">الأغاني المضافة حديثاًh2>
+            <h2 style="font-size: 20px; margin-bottom: 16px;">الأغاني المضافة حديثاً</h2>
             <div class="tracks-grid" id="tracksGrid">
-               
+                <!-- سيتم ملء هذه المنطقة ديناميكيًا -->
                 <div style="grid-column: 1 / -1; text-align: center; padding: 40px; color: var(--spotify-light-gray);">
-                    <i class="fas fa-music" style="font-size: 48px; margin-bottom: 16px; opacity: 0.5;">i>
-                    <p>لا توجد موسيقى معروضة. يرجى تحميل بعض الملفات الموسيقية.p>
-                div>
-            div>
-        div>
-    div>
+                    <i class="fas fa-music" style="font-size: 48px; margin-bottom: 16px; opacity: 0.5;"></i>
+                    <p>لا توجد موسيقى معروضة. يرجى تحميل بعض الملفات الموسيقية.</p>
+                </div>
+            </div>
+        </div>
+    </div>
 
-   
+    <!-- مشغل الموسيقى -->
     <div class="player-bar">
-       
+        <!-- Visualizer -->
         <div class="visualizer" id="visualizer">
-           
-        div>
+            <!-- سيتم إنشاء الأشرطة ديناميكيًا -->
+        </div>
 
         <div class="now-playing">
             <div class="current-track-cover">
                 <div style="width: 100%; height: 100%; background: #333; display: flex; align-items: center; justify-content: center; border-radius: 4px;">
-                    <i class="fas fa-music" style="color: #b3b3b3; font-size: 18px;">i>
-                div>
-            div>
+                    <i class="fas fa-music" style="color: #b3b3b3; font-size: 18px;"></i>
+                </div>
+            </div>
             <div class="track-info">
-                <div class="current-track-name" id="nowPlayingName">لم يتم اختيار أي أغنيةdiv>
-                <div class="current-track-artist" id="nowPlayingArtist">فنان غير معروفdiv>
-            div>
+                <div class="current-track-name" id="nowPlayingName">لم يتم اختيار أي أغنية</div>
+                <div class="current-track-artist" id="nowPlayingArtist">فنان غير معروف</div>
+            </div>
             <button class="like-btn">
-                <i class="far fa-heart">i>
-            button>
-        div>
+                <i class="far fa-heart"></i>
+            </button>
+        </div>
 
         <div class="player-controls">
             <div class="control-buttons">
                 <button class="control-btn" id="shuffleBtn">
-                    <i class="fas fa-random">i>
-                button>
+                    <i class="fas fa-random"></i>
+                </button>
                 <button class="control-btn" id="prevBtn">
-                    <i class="fas fa-step-backward">i>
-                button>
+                    <i class="fas fa-step-backward"></i>
+                </button>
                 <button class="control-btn play-pause" id="playPauseBtn">
-                    <i class="fas fa-play">i>
-                button>
+                    <i class="fas fa-play"></i>
+                </button>
                 <button class="control-btn" id="nextBtn">
-                    <i class="fas fa-step-forward">i>
-                button>
+                    <i class="fas fa-step-forward"></i>
+                </button>
                 <button class="control-btn" id="repeatBtn">
-                    <i class="fas fa-redo">i>
-                button>
-            div>
+                    <i class="fas fa-redo"></i>
+                </button>
+            </div>
             <div class="progress-container">
-                <div class="progress-time" id="currentTime">0:00div>
+                <div class="progress-time" id="currentTime">0:00</div>
                 <div class="progress-bar" id="progressBar">
-                    <div class="progress" id="progress">div>
-                    <div class="progress-handle">div>
-                div>
-                <div class="progress-time" id="duration">0:00div>
-            div>
-        div>
+                    <div class="progress" id="progress"></div>
+                    <div class="progress-handle"></div>
+                </div>
+                <div class="progress-time" id="duration">0:00</div>
+            </div>
+        </div>
 
         <div class="extra-controls">
             <button class="control-btn">
-                <i class="fas fa-list">i>
-            button>
+                <i class="fas fa-list"></i>
+            </button>
             <div class="volume-container">
                 <button class="control-btn">
-                    <i class="fas fa-volume-up">i>
-                button>
+                    <i class="fas fa-volume-up"></i>
+                </button>
                 <div class="volume-bar">
-                    <div class="volume-level">div>
-                div>
-            div>
-        div>
-    div>
+                    <div class="volume-level"></div>
+                </div>
+            </div>
+        </div>
+    </div>
 
-    <audio id="audioPlayer" style="display: none;">audio>
+    <audio id="audioPlayer" style="display: none;"></audio>
 
     <script>
         // عناصر DOM الرئيسية
@@ -942,7 +942,7 @@ head>
         const mobileMenuBtn = document.getElementById('mobileMenuBtn');
         const sidebar = document.getElementById('sidebar');
         const overlay = document.getElementById('overlay');
-       
+        
         const audioPlayer = document.getElementById('audioPlayer');
         const playPauseBtn = document.getElementById('playPauseBtn');
         const prevBtn = document.getElementById('prevBtn');
@@ -951,7 +951,7 @@ head>
         const progressBar = document.getElementById('progressBar');
         const currentTimeEl = document.getElementById('currentTime');
         const durationEl = document.getElementById('duration');
-       
+        
         const nowPlayingName = document.getElementById('nowPlayingName');
         const nowPlayingArtist = document.getElementById('nowPlayingArtist');
         const visualizer = document.getElementById('visualizer');
@@ -996,7 +996,7 @@ head>
         function handleMusicFiles(event) {
             const files = event.target.files;
             if (files.length === 0) return;
-           
+            
             tracks = Array.from(files).map((file, index) => {
                 return {
                     id: index,
@@ -1007,10 +1007,10 @@ head>
                     duration: '0:00'
                 };
             });
-           
+            
             fileStatus.textContent = `تم تحميل ${tracks.length} ملف موسيقي`;
             renderTracksGrid();
-           
+            
             // إذا كان هناك ملفات، قم بتشغيل الأول
             if (tracks.length > 0) {
                 loadTrack(0);
@@ -1020,40 +1020,35 @@ head>
         // عرض شبكة الأغاني
         function renderTracksGrid() {
             tracksGrid.innerHTML = '';
-           
+            
             tracks.forEach((track, index) => {
                 const trackCard = document.createElement('div');
                 trackCard.className = 'track-card';
                 trackCard.dataset.index = index;
-               
+                
                 // إنشاء لون عشوائي للغلاف
                 const hue = Math.floor(Math.random() * 360);
                 const color1 = `hsl(${hue}, 70%, 50%)`;
                 const color2 = `hsl(${hue + 30}, 70%, 50%)`;
-               
+                
                 trackCard.innerHTML = `
-                   
-
-                       
-
+                    <div class="track-cover">
+                        <div style="width: 100%; height: 100%; background: linear-gradient(135deg, ${color1}, ${color2}); display: flex; align-items: center; justify-content: center; color: white; font-size: 24px; font-weight: bold;">
                             ${track.name.charAt(0).toUpperCase()}
-                       
-                       
-
-                           
-                       
-                   
-                   
-${track.name}
-                   
-${track.artist}
+                        </div>
+                        <div class="play-button">
+                            <i class="fas fa-play"></i>
+                        </div>
+                    </div>
+                    <div class="track-title">${track.name}</div>
+                    <div class="track-artist">${track.artist}</div>
                 `;
-               
+                
                 trackCard.addEventListener('click', () => {
                     loadTrack(index);
                     playTrack();
                 });
-               
+                
                 tracksGrid.appendChild(trackCard);
             });
         }
@@ -1061,18 +1056,18 @@ ${track.artist}
         // تحميل أغنية
         function loadTrack(index) {
             if (tracks.length === 0) return;
-           
+            
             const track = tracks[index];
             currentTrackIndex = index;
-           
+            
             // تحديث واجهة المستخدم
             nowPlayingName.textContent = track.name;
             nowPlayingArtist.textContent = track.artist;
-           
+            
             // تحميل الملف الصوتي
             audioPlayer.src = track.url;
             audioPlayer.load();
-           
+            
             // عند تحميل البيانات، تحديث المدة
             audioPlayer.addEventListener('loadedmetadata', () => {
                 durationEl.textContent = formatTime(audioPlayer.duration);
@@ -1083,7 +1078,7 @@ ${track.artist}
         // تشغيل الأغنية
         function playTrack() {
             if (tracks.length === 0) return;
-           
+            
             audioPlayer.play()
                 .then(() => {
                     isPlaying = true;
@@ -1106,7 +1101,7 @@ ${track.artist}
         // التبديل بين التشغيل والإيقاف
         playPauseBtn.addEventListener('click', () => {
             if (tracks.length === 0) return;
-           
+            
             if (isPlaying) {
                 pauseTrack();
             } else {
@@ -1117,14 +1112,14 @@ ${track.artist}
         // الأغنية التالية
         nextBtn.addEventListener('click', () => {
             if (tracks.length === 0) return;
-           
+            
             let nextIndex;
             if (isShuffled) {
                 nextIndex = Math.floor(Math.random() * tracks.length);
             } else {
                 nextIndex = (currentTrackIndex + 1) % tracks.length;
             }
-           
+            
             loadTrack(nextIndex);
             playTrack();
         });
@@ -1132,14 +1127,14 @@ ${track.artist}
         // الأغنية السابقة
         prevBtn.addEventListener('click', () => {
             if (tracks.length === 0) return;
-           
+            
             let prevIndex;
             if (isShuffled) {
                 prevIndex = Math.floor(Math.random() * tracks.length);
             } else {
                 prevIndex = (currentTrackIndex - 1 + tracks.length) % tracks.length;
             }
-           
+            
             loadTrack(prevIndex);
             playTrack();
         });
@@ -1148,7 +1143,7 @@ ${track.artist}
         audioPlayer.addEventListener('timeupdate', () => {
             const currentTime = audioPlayer.currentTime;
             const duration = audioPlayer.duration;
-           
+            
             if (duration) {
                 const progressPercent = (currentTime / duration) * 100;
                 progress.style.width = `${progressPercent}%`;
@@ -1159,11 +1154,11 @@ ${track.artist}
         // النقر على شريط التقدم
         progressBar.addEventListener('click', (e) => {
             if (tracks.length === 0) return;
-           
+            
             const width = progressBar.clientWidth;
             const clickX = e.offsetX;
             const duration = audioPlayer.duration;
-           
+            
             audioPlayer.currentTime = (clickX / width) * duration;
         });
 
@@ -1198,7 +1193,7 @@ ${track.artist}
         // تنسيق الوقت
         function formatTime(seconds) {
             if (isNaN(seconds)) return '0:00';
-           
+            
             const minutes = Math.floor(seconds / 60);
             const secs = Math.floor(seconds % 60);
             return `${minutes}:${secs < 10 ? '0' : ''}${secs}`;
@@ -1232,14 +1227,14 @@ ${track.artist}
                     { id: 5, name: "موسيقى روك", artist: "ليد زيبلين", url: "#", duration: "4:45" },
                     { id: 6, name: "موسيقى الجاز", artist: "لويس أرمسترونغ", url: "#", duration: "3:15" }
                 ];
-               
+                
                 fileStatus.textContent = `تم تحميل ${tracks.length} ملف موسيقي (افتراضي)`;
                 renderTracksGrid();
-               
+                
                 // تحميل أول أغنية
                 loadTrack(0);
             }, 1000);
         });
-    script>
-body>
-html>
+    </script>
+</body>
+</html>
